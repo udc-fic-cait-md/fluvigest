@@ -1,0 +1,30 @@
+<h1>LISTA DE FACTURAS</h1>
+<div class="CSSTableGenerator">
+<table>
+
+    <tr>
+      <td>Descripcion</td>
+      <td>Fecha</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+
+
+
+    <% @facturas.each do |factura| %>
+      <tr>
+        <td><%= factura.descripcion %></td>
+        <td><%= factura.fecha %></td>
+        <td><%= link_to 'Mostrar', factura %></td>
+        <td><%= link_to 'Editar', edit_factura_path(factura) %></td>
+        <td><%= link_to 'Borrar', factura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+
+</table>
+</div>
+<br>
+
+<%= link_to 'Crear factura', new_factura_path %>

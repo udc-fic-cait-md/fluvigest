@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Factura:</strong>
+  <%= @linea_factura.factura %>
+</p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @linea_factura.numero %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @linea_factura.descripcion %>
+</p>
+
+<%= link_to 'Edit', edit_linea_factura_path(@linea_factura) %> |
+<%= link_to 'Back', linea_facturas_path %>
