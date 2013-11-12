@@ -15,5 +15,8 @@
 /log/*.log
 /tmp
 
-/Ignoro el archivo de RubyMine
+# Ignoro el archivo de RubyMine
 .idea/
+
+#Ignoro el fichero de configuracion de la BD.
+/config/database.yml
