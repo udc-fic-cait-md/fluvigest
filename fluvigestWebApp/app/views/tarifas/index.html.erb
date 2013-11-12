@@ -1,0 +1,25 @@
+<h1>Listing tarifas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tarifas.each do |tarifa| %>
+      <tr>
+        <td><%= link_to 'Show', tarifa %></td>
+        <td><%= link_to 'Edit', edit_tarifa_path(tarifa) %></td>
+        <td><%= link_to 'Destroy', tarifa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tarifa', new_tarifa_path %>

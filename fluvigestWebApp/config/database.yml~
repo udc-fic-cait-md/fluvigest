@@ -13,8 +13,8 @@ development:
   encoding: utf8
   database: fluvigestWebApp_development
   pool: 5
-  username: fluvigest
-  password: fluvigest
+  username: root	
+  password:
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -25,8 +25,8 @@ test:
   encoding: utf8
   database: fluvigestWebApp_test
   pool: 5
-  username: fluvigest
-  password: fluvigest
+  username: root
+  password:
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -34,6 +34,6 @@ production:
   encoding: utf8
   database: fluvigestWebApp_production
   pool: 5
-  username: fluvigest
-  password: fluvigest
+  username: root
+  password:
   socket: /var/run/mysqld/mysqld.sock
