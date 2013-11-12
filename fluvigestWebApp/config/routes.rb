@@ -1,4 +1,6 @@
 FluvigestWebApp::Application.routes.draw do
+  resources :tarifas
+
   resources :linea_facturas
   resources :facturas do
     resources :linea_facturas
