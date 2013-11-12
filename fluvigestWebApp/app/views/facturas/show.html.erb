@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<h1>LINEAS DE FACTURA</h1>
+<div class="CSSTableGenerator">
+  <table>
+    <tr>
+      <td>Numero</td>
+      <td>Descripcion</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <% @factura.linea_facturas.each do |linea_factura| %>
+        <tr>
+          <td><%= linea_factura.numero %></td>
+          <td><%= linea_factura.descripcion %></td>
+          <td><%= link_to 'Editar', edit_linea_factura_path(linea_factura) %></td>
+          <td><%= link_to 'Eliminar', [linea_factura.factura, linea_factura],
+                      method: :delete,
+                      data: { confirm: '¿Estas seguro?' } %>   </td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+<%= link_to 'Añadir linea', new_factura_linea_factura_path(@factura.id) %>
+<%= link_to 'Back', facturas_path %>
