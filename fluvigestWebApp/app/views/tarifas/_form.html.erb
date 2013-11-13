@@ -10,6 +10,34 @@
       </ul>
     </div>
   <% end %>
+    <div id="form">
+
+      <div class="field">
+        <%= f.label :nombre %><br>
+        <%= f.text_area :nombre %>
+      </div>
+      <div class="field">
+        <%= f.label :descripcion %><br>
+        <%= f.text_area :descripcion %>
+      </div>
+      <div class="field">
+        <%= f.label :tipo %><br>
+        <%= f.text_area :tipo %>
+      </div>
+      <div class="field">
+        <%= f.label :precioBasura %><br>
+        <%= f.text_area :precioBasura %>
+      </div>
+      <div class="field">
+        <%= f.label :precioAlquiler %><br>
+        <%= f.text_area :precioAlquiler %>
+      </div>
+
+      <div class="field">
+        <%= f.label :engancheContador %><br>
+        <%= f.check_box :engancheContador %>
+      </div>
+    </div>
 
   <div class="actions">
     <%= f.submit %>
