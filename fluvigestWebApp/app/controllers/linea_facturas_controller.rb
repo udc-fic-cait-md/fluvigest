@@ -4,7 +4,6 @@ class LineaFacturasController < ApplicationController
   # GET /linea_facturas
   # GET /linea_facturas.json
   def index
-    #@factura = Factura.find(params[:factura_id])
     @linea_facturas = LineaFactura.all
   end
 
@@ -33,35 +32,18 @@ class LineaFacturasController < ApplicationController
   def create
     @factura = Factura.find(session[:id_factura])
     @linea_factura = @factura.linea_facturas.create(params[:linea_factura].permit(:descripcion))
-    @linea_factura.numero = getLastNum
+    @linea_factura.numero = getLastNum(@linea_factura.factura_id)
     @linea_factura.save
     redirect_to factura_path(@factura)
-  end
-
-  #Función que me devuelve el ultimo numero de linea usado.
-  def getLastNum
-    count = LineaFactura.maximum("numero")  + 1
   end
 
 
   # PATCH/PUT /linea_facturas/1
   # PATCH/PUT /linea_facturas/1.json
   def update
-    #@factura = Factura.find(params[:factura_id])
-    #@linea_factura = @factura.linea_facturas.find(params[:id])
-    #@linea_factura.update(params[:linea_factura].permit(:numero, :descripcion))
     @factura = Factura.find(@linea_factura.factura)
     @linea_factura.update(linea_factura_params)
     redirect_to factura_path(@factura)
-    #respond_to do |format|
-      #if @linea_factura.update(linea_factura_params)
-       # format.html { redirect_to linea_factura_path }
-       # format.json { head :no_content }
-      #else
-      #  format.html { render action: 'edit' }
-      #  format.json { render json: @linea_factura.errors, status: :unprocessable_entity }
-     # end
-    #end
   end
 
   def verLineas
@@ -87,4 +69,9 @@ class LineaFacturasController < ApplicationController
     def linea_factura_params
       params.require(:linea_factura).permit(:factura_id, :numero, :descripcion)
     end
+
+  #Función que me devuelve el ultimo numero de linea usado.
+  def getLastNum(factura_id)
+    count = LineaFactura.maximum(:numero, :conditions => ["factura_id = ?", factura_id] ) + 1
+  end
 end

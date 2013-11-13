@@ -4,6 +4,7 @@
     <tr>
       <td>Numero</td>
       <td>Descripcion</td>
+
       <td></td>
       <td></td>
     </tr>
@@ -11,6 +12,7 @@
       <tr>
         <td><%= linea_factura.numero %></td>
         <td><%= linea_factura.descripcion %></td>
+
         <td><%= link_to 'editar', edit_linea_factura_path(linea_factura) %></td>
         <td><%= link_to 'borrar', linea_factura, method: :delete, data: { confirm: '¿Estas seguro?' } %></td>
       </tr>

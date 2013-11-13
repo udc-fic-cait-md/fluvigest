@@ -4,6 +4,7 @@ class CreateLineaFacturas < ActiveRecord::Migration
       t.references :factura, index: true
       t.integer :numero
       t.text :descripcion
+      #t.float :importe
 
       t.timestamps
     end
