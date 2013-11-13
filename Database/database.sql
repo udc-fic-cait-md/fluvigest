@@ -97,6 +97,22 @@ COMMENT = 'Táboa de cada unha das vivendas ou locais comerciais que teñ /* com
 
 
 -- -----------------------------------------------------
+-- Table `fluvigest`.`contrato`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `fluvigest`.`contrato` ;
+
+CREATE TABLE IF NOT EXISTS `fluvigest`.`contrato` (
+  `id_contratos` INT NOT NULL,
+  `num_contrato` VARCHAR(45) NOT NULL,
+  `fecha_contrato` DATE NOT NULL,
+  `activo` TINYINT(1) NOT NULL,
+  PRIMARY KEY (`id_contratos`),
+  UNIQUE INDEX `idcontratos_UNIQUE` (`id_contratos` ASC),
+  UNIQUE INDEX `num_contrato_UNIQUE` (`num_contrato` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `fluvigest`.`contadores`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `fluvigest`.`contadores` ;
@@ -104,16 +120,17 @@ DROP TABLE IF EXISTS `fluvigest`.`contadores` ;
 CREATE TABLE IF NOT EXISTS `fluvigest`.`contadores` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `num_serie` VARCHAR(45) NOT NULL,
-  `calibre` VARCHAR(45) NULL,
   `data_instalacion` DATE NULL,
   `data_retirada` DATE NULL,
   `modelos_contadores_id` INT NOT NULL,
   `inmobles_id` INT NOT NULL,
   `data_revision` DATE NULL,
   `estado` VARCHAR(45) NULL,
+  `CONTRATO_idcontratos` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_contadores_modelos_contadores1` (`modelos_contadores_id` ASC),
   INDEX `fk_contadores_inmobles1` (`inmobles_id` ASC),
+  INDEX `fk_contadores_CONTRATO1_idx` (`CONTRATO_idcontratos` ASC),
   CONSTRAINT `fk_contadores_modelos_contadores1`
     FOREIGN KEY (`modelos_contadores_id`)
     REFERENCES `fluvigest`.`modelos_contadores` (`id`)
@@ -122,6 +139,11 @@ CREATE TABLE IF NOT EXISTS `fluvigest`.`contadores` (
   CONSTRAINT `fk_contadores_inmobles1`
     FOREIGN KEY (`inmobles_id`)
     REFERENCES `fluvigest`.`inmobles` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_contadores_CONTRATO1`
+    FOREIGN KEY (`CONTRATO_idcontratos`)
+    REFERENCES `fluvigest`.`contrato` (`id_contratos`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -234,6 +256,108 @@ CREATE TABLE IF NOT EXISTS `fluvigest`.`tLogs` (
   CONSTRAINT `fk_tLogs_usuarios1`
     FOREIGN KEY (`usuarios_id`)
     REFERENCES `fluvigest`.`usuarios` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `fluvigest`.`facturas`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `fluvigest`.`facturas` ;
+
+CREATE TABLE IF NOT EXISTS `fluvigest`.`facturas` (
+  `id_facturas` INT NOT NULL,
+  `fecha_factura` DATE NOT NULL,
+  `contrato_id_contratos` INT NOT NULL,
+  PRIMARY KEY (`id_facturas`),
+  INDEX `fk_facturas_contrato1_idx` (`contrato_id_contratos` ASC),
+  CONSTRAINT `fk_facturas_contrato1`
+    FOREIGN KEY (`contrato_id_contratos`)
+    REFERENCES `fluvigest`.`contrato` (`id_contratos`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `fluvigest`.`linea_factura`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `fluvigest`.`linea_factura` ;
+
+CREATE TABLE IF NOT EXISTS `fluvigest`.`linea_factura` (
+  `id_detalle_factura` INT NOT NULL,
+  `linea_factura` INT NOT NULL,
+  `periodo` DATE NOT NULL,
+  `cantidad` INT NOT NULL,
+  `concepto` VARCHAR(200) NOT NULL,
+  `importe` DOUBLE NOT NULL,
+  `id_facturas` INT NOT NULL,
+  PRIMARY KEY (`id_detalle_factura`),
+  UNIQUE INDEX `idLINEA_FACTURA_UNIQUE` (`id_detalle_factura` ASC),
+  INDEX `fk_detalle_factura_facturas1_idx` (`id_facturas` ASC),
+  CONSTRAINT `fk_detalle_factura_facturas1`
+    FOREIGN KEY (`id_facturas`)
+    REFERENCES `fluvigest`.`facturas` (`id_facturas`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `fluvigest`.`tarifas`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `fluvigest`.`tarifas` ;
+
+CREATE TABLE IF NOT EXISTS `fluvigest`.`tarifas` (
+  `id_tarifas` INT NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `precio` DOUBLE NOT NULL,
+  PRIMARY KEY (`id_tarifas`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `fluvigest`.`servicios`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `fluvigest`.`servicios` ;
+
+CREATE TABLE IF NOT EXISTS `fluvigest`.`servicios` (
+  `id_servicios` INT NOT NULL,
+  `nombre` VARCHAR(45) NULL,
+  `descripcion` VARCHAR(45) NULL,
+  `tarifas_id_tarifas` INT NOT NULL,
+  PRIMARY KEY (`id_servicios`, `tarifas_id_tarifas`),
+  INDEX `fk_servicios_tarifas1_idx` (`tarifas_id_tarifas` ASC),
+  CONSTRAINT `fk_servicios_tarifas1`
+    FOREIGN KEY (`tarifas_id_tarifas`)
+    REFERENCES `fluvigest`.`tarifas` (`id_tarifas`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `fluvigest`.`contrato_servicio`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `fluvigest`.`contrato_servicio` ;
+
+CREATE TABLE IF NOT EXISTS `fluvigest`.`contrato_servicio` (
+  `contrato_idcontratos` INT NOT NULL,
+  `servicios_id_servicios` INT NOT NULL,
+  `fecha` DATE NOT NULL,
+  `importe_servicios` DOUBLE NOT NULL,
+  PRIMARY KEY (`contrato_idcontratos`, `servicios_id_servicios`, `fecha`, `importe_servicios`),
+  INDEX `fk_CONTRATO_has_SERVICIOS_SERVICIOS1_idx` (`servicios_id_servicios` ASC),
+  INDEX `fk_CONTRATO_has_SERVICIOS_CONTRATO1_idx` (`contrato_idcontratos` ASC),
+  CONSTRAINT `fk_CONTRATO_has_SERVICIOS_CONTRATO1`
+    FOREIGN KEY (`contrato_idcontratos`)
+    REFERENCES `fluvigest`.`contrato` (`id_contratos`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_CONTRATO_has_SERVICIOS_SERVICIOS1`
+    FOREIGN KEY (`servicios_id_servicios`)
+    REFERENCES `fluvigest`.`servicios` (`id_servicios`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
