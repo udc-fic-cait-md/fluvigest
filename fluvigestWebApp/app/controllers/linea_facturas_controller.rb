@@ -23,6 +23,9 @@ class LineaFacturasController < ApplicationController
 
   # GET /linea_facturas/1/edit
   def edit
+    #@factura = Factura.find(params[:factura_id])
+    @factura = Factura.find(@linea_factura.factura)
+    @factura = Factura.find(@linea_factura.factura)
   end
 
   # POST /linea_facturas
