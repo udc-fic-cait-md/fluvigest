@@ -1,0 +1,12 @@
+<p>
+  <strong>Nombre:</strong>
+  <%= @abonado.nombre %>
+</p>
+ 
+<p>
+  <strong>Apellidos:</strong>
+  <%= @abonado.apellidos %>
+</p>
+
+<%= link_to 'Back', abonados_path %>
+| <%= link_to 'Edit', edit_abonado_path(@edit) %>
