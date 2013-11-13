@@ -11,12 +11,12 @@
       <tr>
         <td><%= linea_factura.numero %></td>
         <td><%= linea_factura.descripcion %></td>
-        <td><%= link_to 'Edit', edit_linea_factura_path(linea_factura) %></td>
-        <td><%= link_to 'Destroy', linea_factura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'editar', edit_linea_factura_path(linea_factura) %></td>
+        <td><%= link_to 'borrar', linea_factura, method: :delete, data: { confirm: '¿Estas seguro?' } %></td>
       </tr>
     <% end %>
 </table>
 </div>
 <br>
 
-<%= link_to 'Back', facturas_path %>
+<%= link_to 'Volver', facturas_path %>
