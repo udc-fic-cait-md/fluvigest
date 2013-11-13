@@ -31,23 +31,18 @@ class LineaFacturasController < ApplicationController
   # POST /linea_facturas
   # POST /linea_facturas.json
   def create
-
     @factura = Factura.find(session[:id_factura])
-    @linea_factura = @factura.linea_facturas.create(params[:linea_factura].permit(:numero, :descripcion))
+    @linea_factura = @factura.linea_facturas.create(params[:linea_factura].permit(:descripcion))
+    @linea_factura.numero = getLastNum
+    @linea_factura.save
     redirect_to factura_path(@factura)
-
-    #@linea_factura = LineaFactura.new(linea_factura_params)
-
-    #respond_to do |format|
-     # if @linea_factura.save
-      #  format.html { redirect_to @linea_factura, notice: 'Linea factura was successfully created.' }
-       # format.json { render action: 'show', status: :created, location: @linea_factura }
-      #else
-       # format.html { render action: 'new' }
-       # format.json { render json: @linea_factura.errors, status: :unprocessable_entity }
-      #end
-    #end
   end
+
+  #Función que me devuelve el ultimo numero de linea usado.
+  def getLastNum
+    count = LineaFactura.maximum("numero")  + 1
+  end
+
 
   # PATCH/PUT /linea_facturas/1
   # PATCH/PUT /linea_facturas/1.json
