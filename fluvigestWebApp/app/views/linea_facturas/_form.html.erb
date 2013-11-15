@@ -1,3 +1,4 @@
+
 <%= form_for(@linea_factura) do |f| %>
   <% if @linea_factura.errors.any? %>
     <div id="error_explanation">
@@ -12,9 +13,10 @@
   <% end %>
 
 
-
+  <div class="field">
+    <%= f.label :importe %><br>
+    <%= f.text_field :importe %>
   </div>
-
   <div class="field">
     <%= f.label :descripcion %><br>
     <%= f.text_area :descripcion %>
@@ -22,4 +24,6 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
+
 <% end %>

@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20131112230901) do
     t.integer  "factura_id"
     t.integer  "numero"
     t.text     "descripcion"
+    t.float    "importe"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

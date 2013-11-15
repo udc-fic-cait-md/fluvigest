@@ -1,15 +1,21 @@
 class FacturasController < ApplicationController
   before_action :set_factura, only: [:show, :edit, :update, :destroy]
+  require 'will_paginate'
+  require 'will_paginate/array'
 
   # GET /facturas
   # GET /facturas.json
   def index
     @facturas = Factura.all
+    @facturas = @facturas.paginate(:page => params[:page], :per_page => 6)
+
   end
 
   # GET /facturas/1
   # GET /facturas/1.json
   def show
+    @linea_facturas = @factura.linea_facturas.all
+    @linea_facturas = @linea_facturas.paginate(:page => params[:page], :per_page => 6)
   end
 
   # GET /facturas/new
@@ -60,6 +66,7 @@ class FacturasController < ApplicationController
       format.json { head :no_content }
     end
   end
+  #Busqueda para odernar y paginar la tabla de facturas
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -71,4 +78,9 @@ class FacturasController < ApplicationController
     def factura_params
       params.require(:factura).permit(:descripcion, :fecha)
     end
+
+
+
+
+
 end
