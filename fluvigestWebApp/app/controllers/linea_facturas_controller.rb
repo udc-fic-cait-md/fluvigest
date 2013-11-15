@@ -5,6 +5,7 @@ class LineaFacturasController < ApplicationController
   # GET /linea_facturas.json
   def index
     @linea_facturas = LineaFactura.all
+    #@linea_facturas = @linea_facturas.paginate(:page => params[:page], :per_page => 6)
   end
 
   # GET /linea_facturas/1
@@ -31,7 +32,7 @@ class LineaFacturasController < ApplicationController
   # POST /linea_facturas.json
   def create
     @factura = Factura.find(session[:id_factura])
-    @linea_factura = @factura.linea_facturas.create(params[:linea_factura].permit(:descripcion))
+    @linea_factura = @factura.linea_facturas.create(params[:linea_factura].permit(:descripcion, :importe))
     @linea_factura.numero = getLastNum(@linea_factura.factura_id)
     @linea_factura.save
     redirect_to factura_path(@factura)
@@ -67,11 +68,16 @@ class LineaFacturasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def linea_factura_params
-      params.require(:linea_factura).permit(:factura_id, :numero, :descripcion)
+      params.require(:linea_factura).permit(:factura_id, :numero, :descripcion, :importe)
     end
 
   #Función que me devuelve el ultimo numero de linea usado.
   def getLastNum(factura_id)
-    count = LineaFactura.maximum(:numero, :conditions => ["factura_id = ?", factura_id] ) + 1
+    count = LineaFactura.maximum(:numero, :conditions => ["factura_id = ?", factura_id] )
+    if count == nil then
+      count = 1
+    else
+      count = count + 1
+    end
   end
 end

@@ -1,4 +1,4 @@
-<h1>LISTA DE FACTURAS</h1>
+<h1 style="text-align: center">LISTA DE FACTURAS</h1>
 <div class="CSSTableGenerator">
 <table>
 
@@ -8,6 +8,7 @@
       <td></td>
       <td></td>
       <td></td>
+
     </tr>
 
 
@@ -24,7 +25,9 @@
     <% end %>
 
 </table>
+  <div style="background: #b2b2b2; text-align: center"><%= will_paginate @facturas %></div>
 </div>
+
 <br>
 
-<%= link_to 'Crear factura', new_factura_path %>
+<%= link_to 'Crear factura', new_factura_path, {:class => "botonLink"} %>
