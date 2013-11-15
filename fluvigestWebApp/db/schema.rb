@@ -16,6 +16,10 @@ ActiveRecord::Schema.define(version: 20131112230901) do
   create_table "facturas", force: true do |t|
     t.text     "descripcion"
     t.datetime "fecha"
+    t.text     "nombre_cliente"
+    t.text     "ap1_cliente"
+    t.text     "ap2_cliente"
+    t.text     "dni"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
