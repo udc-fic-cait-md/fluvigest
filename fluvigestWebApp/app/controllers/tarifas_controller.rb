@@ -69,6 +69,9 @@ class TarifasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tarifa_params
-      params[:tarifa]
+
+
+      params.require(:tarifa).permit(:nombre,:descripcion,:tipo,:precioBasura,:precioAlquiler,:engancheContador)
+     # params[:tarifa]
     end
 end
