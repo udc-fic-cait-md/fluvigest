@@ -18,6 +18,11 @@ class FacturasController < ApplicationController
     @linea_facturas = @linea_facturas.paginate(:page => params[:page], :per_page => 6)
   end
 
+  def show_factura
+    @factura = Factura.find(1)
+    @linea_facturas = @factura.linea_facturas.all
+  end
+
   # GET /facturas/new
   def new
     @factura = Factura.new
