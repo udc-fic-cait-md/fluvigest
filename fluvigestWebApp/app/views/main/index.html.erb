@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+        <title>INICIO</title>
+    </head>
+    <body>
+        <section id="seccion">
+            <article>
+               <div id="contadores">
+						<fieldset>						
+							<legend>Contadores</legend>
+							<ul>
+								<li><%= link_to 'Listar', controller: "contadores" %></li>
+								<li><%= link_to 'Crear', new_contadore_path %></li>
+							</ul>
+						</fieldset>
+					</div>
+               <div id="model_contadores">
+						<fieldset>						
+							<legend>Modelos de Contadores</legend>
+							<ul>
+								<li><%= link_to 'Listar', controller: "modelos_contadores" %></li>
+								<li><%= link_to 'Crear', new_modelos_contadore_path %></li>
+							</ul>
+						</fieldset>
+					</div>
+               <div id="inmuebles">
+						<fieldset>						
+							<legend>Inmuebles</legend>
+							<ul>
+								<li><%= link_to 'Listar', controller: "inmuebles" %></li>
+								<li><%= link_to 'Crear', new_inmueble_path %></li>
+							</ul>
+						</fieldset>
+					</div>
+               <div id="barrios">
+						<fieldset>						
+							<legend>Barrios</legend>
+							<ul>
+								<li><%= link_to 'Listar', controller: "barrios" %></li>
+								<li><%= link_to 'Crear', new_barrio_path %></li>
+							</ul>
+						</fieldset>
+					</div>
+               <div id="calles">
+						<fieldset>						
+							<legend>Calles</legend>
+							<ul>
+								<li><%= link_to 'Listar', controller: "calles" %></li>
+								<li><%= link_to 'Crear', new_calle_path %></li>
+							</ul>
+						</fieldset>
+					</div>
+            </article>
+        </section>
+    </body>
+</html>

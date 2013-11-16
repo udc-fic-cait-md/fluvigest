@@ -1,9 +1,5 @@
 FluvigestWebApp::Application.routes.draw do
   resources :contadores
-  resources :inmuebles
-  resources :barrios
-  resources :calles
-  resources :modelos_contadores
 
   get "main/index"
   root 'main#index'
