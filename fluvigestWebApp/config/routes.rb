@@ -14,7 +14,7 @@ FluvigestWebApp::Application.routes.draw do
    #root 'welcome#index'
   root 'facturas#index'
 
-  get 'showFactura', to: 'facturas#showFactura'
+  get 'show_factura', to: 'facturas#show_factura'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
