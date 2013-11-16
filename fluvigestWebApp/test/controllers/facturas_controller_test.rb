@@ -18,7 +18,7 @@ class FacturasControllerTest < ActionController::TestCase
 
   test "should create factura" do
     assert_difference('Factura.count') do
-      post :create, factura: { descripcion: @factura.descripcion, fecha: @factura.fecha }
+      post :create, factura: { descripcion: @factura.descripcion, fecha_emision: @factura.fecha_emision }
     end
 
     assert_redirected_to factura_path(assigns(:factura))
@@ -35,7 +35,7 @@ class FacturasControllerTest < ActionController::TestCase
   end
 
   test "should update factura" do
-    patch :update, id: @factura, factura: { descripcion: @factura.descripcion, fecha: @factura.fecha }
+    patch :update, id: @factura, factura: { descripcion: @factura.descripcion, fecha_emision: @factura.fecha_emision }
     assert_redirected_to factura_path(assigns(:factura))
   end
 

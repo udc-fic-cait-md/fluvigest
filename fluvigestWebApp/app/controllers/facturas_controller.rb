@@ -76,7 +76,7 @@ class FacturasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def factura_params
-      params.require(:factura).permit(:descripcion, :fecha)
+      params.require(:factura).permit(:descripcion, :fecha_emision)
     end
 
 

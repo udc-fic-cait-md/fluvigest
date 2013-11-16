@@ -15,7 +15,17 @@ ActiveRecord::Schema.define(version: 20131112230901) do
 
   create_table "facturas", force: true do |t|
     t.text     "descripcion"
-    t.datetime "fecha"
+    t.datetime "fecha_generacion"
+    t.date     "fecha_emision"
+    t.string   "estado"
+    t.string   "detalle_facturacion"
+    t.string   "nombre_cliente"
+    t.string   "direccion"
+    t.integer  "codigo_postal"
+    t.string   "poblacion"
+    t.string   "provincia"
+    t.string   "banco"
+    t.string   "numero_cuenta"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -25,6 +35,8 @@ ActiveRecord::Schema.define(version: 20131112230901) do
     t.integer  "numero"
     t.text     "descripcion"
     t.float    "importe"
+    t.string   "periodo"
+    t.float    "lectura"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
