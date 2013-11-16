@@ -19,7 +19,7 @@ class FacturasController < ApplicationController
   end
 
   def show_factura
-    @factura = Factura.find(1)
+    @factura = Factura.find(params[:factura_id])
     @linea_facturas = @factura.linea_facturas.all
   end
 
