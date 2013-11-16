@@ -1,0 +1,53 @@
+<%= form_for(@inmueble) do |f| %>
+  <% if @inmueble.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@inmueble.errors.count, "error") %> prohibited this inmueble from being saved:</h2>
+
+      <ul>
+      <% @inmueble.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :numero %><br>
+    <%= f.text_field :numero %>
+  </div>
+  <div class="field">
+    <%= f.label :piso %><br>
+    <%= f.text_field :piso %>
+  </div>
+  <div class="field">
+    <%= f.label :portal %><br>
+    <%= f.text_field :portal %>
+  </div>
+  <div class="field">
+    <%= f.label :puerta %><br>
+    <%= f.text_field :puerta %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :orden %><br>
+    <%= f.number_field :orden %>
+  </div>
+  <div class="field">
+    <%= f.label :cod_postal %><br>
+    <%= f.text_field :cod_postal %>
+  </div>
+  <div class="field">
+    <%= f.label :escalera %><br>
+    <%= f.text_field :escalera %>
+  </div>
+  <div class="field">
+    <%= f.label :inmueblescol %><br>
+    <%= f.text_field :inmueblescol %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

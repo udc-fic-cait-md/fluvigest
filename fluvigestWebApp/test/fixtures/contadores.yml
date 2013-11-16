@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  num_serie: MyString
+  calibre: MyString
+  dt_instalacion: 2013-11-16 16:22:39
+  dt_retirada: 2013-11-16 16:22:39
+  dt_revision: 2013-11-16 16:22:39
+  estado: MyString
+
+two:
+  num_serie: MyString
+  calibre: MyString
+  dt_instalacion: 2013-11-16 16:22:39
+  dt_retirada: 2013-11-16 16:22:39
+  dt_revision: 2013-11-16 16:22:39
+  estado: MyString
