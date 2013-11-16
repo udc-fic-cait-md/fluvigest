@@ -16,7 +16,7 @@
     <% @facturas.each do |factura| %>
       <tr>
         <td><%= factura.descripcion %></td>
-        <td><%= factura.fecha %></td>
+        <td><%= factura.fecha_emision %></td>
         <td><%= link_to 'Mostrar', factura %></td>
         <td><%= link_to 'Editar', edit_factura_path(factura) %></td>
         <td><%= link_to 'Borrar', factura, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,1 +1,1 @@
-json.extract! @factura, :descripcion, :fecha, :created_at, :updated_at
+json.extract! @factura, :descripcion, :fecha_emision, :created_at, :updated_at
