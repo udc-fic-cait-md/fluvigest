@@ -189,7 +189,7 @@ module FacturasHelper
 
     factura = Factura.new(
         descripcion: 'factura creada a partir de un mock',   #todo que se mete en la descripcion
-        fecha_generacion: obtener_fecha_inicio(periodo, anho),
+        periodo: obtener_fecha_inicio(periodo, anho),
         estado: estado_factura,
         detalle_facturacion: trazas.to_s,
         nombre_cliente: contrato.abonado.nombre + ' ' + contrato.abonado.apellidos,
@@ -227,7 +227,7 @@ module FacturasHelper
   def existe_factura(contrato, fecha_inicio, fecha_fin)
     # todo falta meter la relacion contrato dentro de factura y filtrar por contrato (una factura tiene un contrato)
     # Factura.where(:fecha_generacion => fecha_inicio..fecha_fin).where(:contrato == contrato.id).any?
-    Factura.where(:fecha_generacion => fecha_inicio..fecha_fin).any?
+    Factura.where(:periodo => fecha_inicio..fecha_fin).any?
   end
 
   def obtener_domiciliacion_por_contrato(contrato)
