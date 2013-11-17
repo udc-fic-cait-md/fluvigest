@@ -1,0 +1,25 @@
+<h1>GENERAR FACTURACION</h1>
+
+<div>
+  <%= form_tag '/facturas/generar' do %>
+      Seleccione el periodo de facturación
+      <%= select('periodo', '', FacturasHelper::PERIODOS_FACTURACION, {include_blank: true}) %>
+
+      <%= select('anho', '', obtener_anhos, {include_blank: true}) %>
+
+      <%= submit_tag 'Generar Facturación' %>
+      <p><span style="font-size:12px; color:Blue">(Las facturas existentes en este periodo no se ver&aacute;n afectadas
+        al pulsar 'Generar Facturas'. Si desea que una factura se vuelva a generar debe borrarla previamente)
+      </span></p>
+  <% end %>
+
+
+</div>
+<hr/>
+
+<span style="color:Blue;font-weight:bold">
+  <p><%= @mensaje_facturadas %></p>
+  <p><%= @mensaje_error %></p>
+</span>
+<p />
+
