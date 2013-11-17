@@ -1,5 +1,8 @@
 class FacturasController < ApplicationController
   before_action :set_factura, only: [:show, :edit, :update, :destroy]
+
+  include FacturasHelper
+
   require 'will_paginate'
   require 'will_paginate/array'
 
@@ -71,6 +74,42 @@ class FacturasController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  ##########################
+  # GENERACION DE FACTURAS #
+  ##########################
+
+  # GET /facturas/generar
+  def show_generar
+    #@facturas = Factura.all
+    #periodo_ = "MARZO-ABRIL"
+  end
+
+  # POST /facturas/generar
+  def generar
+    peri = params[:periodo][0]
+    anho = params[:anho][0]
+    fecha_inicio = obtener_fecha_inicio(peri, anho)
+    fecha_fin = obtener_fecha_fin(peri, anho)
+    #@factura = Factura.where(:fecha => fecha_inicio..fecha_fin)
+
+    resultados = generar_facturacion(peri, anho)
+
+    # TODO: hay que formatear las fechas
+    @mensaje_facturadas = "Se han generado #{resultados['facturas_generadas']} facturas en el periodo que va " +
+        "desde el #{fecha_inicio} hasta el #{fecha_fin}."
+
+    if !resultados['facturas_incorrectas'].nil? && resultados['facturas_incorrectas'] != 0
+      @mensaje_error = "Existen #{resultados['facturas_incorrectas']} facturas que se han generado con algún tipo de error. " +
+        "Para ver dichas facturas pulse <a href='index?periodo=MARZO-ABRIL&anho=2013&estado=2'>aqu&iacute;</a>."
+    end
+
+    render 'show_generar'
+  end
+  ##############################
+  # FIN GENERACION DE FACTURAS #
+  ##############################
+
   #Busqueda para odernar y paginar la tabla de facturas
 
   private
