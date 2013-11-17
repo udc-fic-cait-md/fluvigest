@@ -21,6 +21,7 @@ class FacturasController < ApplicationController
   def show_factura
     @factura = Factura.find(params[:factura_id])
     @linea_facturas = @factura.linea_facturas.all
+    @total = @factura.linea_facturas.sum('importe')
   end
 
   # GET /facturas/new
