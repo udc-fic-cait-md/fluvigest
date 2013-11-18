@@ -20,7 +20,7 @@ development:
   pool: 5
 
   username: root
-  password:
+  password: toor
 
   socket: /var/run/mysqld/mysqld.sock
 
@@ -37,7 +37,7 @@ test:
   pool: 5
 
   username: root
-  password:
+  password: toor
 
   socket: /var/run/mysqld/mysqld.sock
 
@@ -50,5 +50,5 @@ production:
   pool: 5
 
   username: root
-  password:
+  password: toor
   socket: /var/run/mysqld/mysqld.sock
