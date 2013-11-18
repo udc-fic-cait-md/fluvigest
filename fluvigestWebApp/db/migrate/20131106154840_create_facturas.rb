@@ -13,6 +13,7 @@ class CreateFacturas < ActiveRecord::Migration
       t.string :provincia
       t.string :banco
       t.string :numero_cuenta
+      t.string :dni
 
       t.timestamps
     end

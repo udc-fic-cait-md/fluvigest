@@ -3,6 +3,8 @@ FluvigestWebApp::Application.routes.draw do
   get 'facturas/generar' => 'facturas#show_generar'
   post 'facturas/generar' => 'facturas#generar'
 
+  get 'facturas/show_factura' => 'facturas#show_factura'
+
   resources :tarifas
 
   resources :linea_facturas
@@ -18,7 +20,6 @@ FluvigestWebApp::Application.routes.draw do
    #root 'welcome#index'
   root 'facturas#index'
 
-  get 'show_factura', to: 'facturas#show_factura'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
