@@ -23,6 +23,30 @@ ActiveRecord::Schema.define(version: 20131118202903) do
     t.string   "nif"
   end
 
+  create_table "barrios", force: true do |t|
+    t.string   "nombre"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "calles", force: true do |t|
+    t.string   "nombre"
+    t.string   "zona"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contadores", force: true do |t|
+    t.string   "num_serie"
+    t.string   "calibre"
+    t.datetime "dt_instalacion"
+    t.datetime "dt_retirada"
+    t.datetime "dt_revision"
+    t.string   "estado"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "contratos", force: true do |t|
     t.date     "fecha_inicio"
     t.date     "fecha_fin"
@@ -49,6 +73,27 @@ ActiveRecord::Schema.define(version: 20131118202903) do
   end
 
   add_index "domiciliacions", ["contrato_id"], name: "index_domiciliacions_on_contrato_id", using: :btree
+
+  create_table "inmuebles", force: true do |t|
+    t.string   "numero"
+    t.string   "piso"
+    t.string   "portal"
+    t.string   "puerta"
+    t.string   "nombre"
+    t.integer  "orden"
+    t.string   "cod_postal"
+    t.string   "escalera"
+    t.string   "inmueblescol"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "modelos_contadores", force: true do |t|
+    t.string   "marca"
+    t.string   "modelo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "servicio_contratados", force: true do |t|
     t.integer  "contrato_id"

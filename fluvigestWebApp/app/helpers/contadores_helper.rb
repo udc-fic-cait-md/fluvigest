@@ -1,0 +1,2 @@
+module ContadoresHelper
+end

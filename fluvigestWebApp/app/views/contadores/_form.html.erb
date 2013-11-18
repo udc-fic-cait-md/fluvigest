@@ -1,0 +1,41 @@
+<%= form_for(@contadore) do |f| %>
+  <% if @contadore.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contadore.errors.count, "error") %> prohibited this contadore from being saved:</h2>
+
+      <ul>
+      <% @contadore.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :num_serie %><br>
+    <%= f.text_field :num_serie %>
+  </div>
+  <div class="field">
+    <%= f.label :calibre %><br>
+    <%= f.text_field :calibre %>
+  </div>
+  <div class="field">
+    <%= f.label :dt_instalacion %><br>
+    <%= f.datetime_select :dt_instalacion %>
+  </div>
+  <div class="field">
+    <%= f.label :dt_retirada %><br>
+    <%= f.datetime_select :dt_retirada %>
+  </div>
+  <div class="field">
+    <%= f.label :dt_revision %><br>
+    <%= f.datetime_select :dt_revision %>
+  </div>
+  <div class="field">
+    <%= f.label :estado %><br>
+    <%= f.text_field :estado %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

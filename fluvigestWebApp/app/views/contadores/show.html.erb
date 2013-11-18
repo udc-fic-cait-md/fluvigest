@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Num serie:</strong>
+  <%= @contadore.num_serie %>
+</p>
+
+<p>
+  <strong>Calibre:</strong>
+  <%= @contadore.calibre %>
+</p>
+
+<p>
+  <strong>Dt instalacion:</strong>
+  <%= @contadore.dt_instalacion %>
+</p>
+
+<p>
+  <strong>Dt retirada:</strong>
+  <%= @contadore.dt_retirada %>
+</p>
+
+<p>
+  <strong>Dt revision:</strong>
+  <%= @contadore.dt_revision %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @contadore.estado %>
+</p>
+
+<%= link_to 'Edit', edit_contadore_path(@contadore) %> |
+<%= link_to 'Back', contadores_path %>

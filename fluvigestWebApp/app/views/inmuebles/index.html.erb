@@ -1,0 +1,43 @@
+<h1>Listing inmuebles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Numero</th>
+      <th>Piso</th>
+      <th>Portal</th>
+      <th>Puerta</th>
+      <th>Nombre</th>
+      <th>Orden</th>
+      <th>Cod postal</th>
+      <th>Escalera</th>
+      <th>Inmueblescol</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inmuebles.each do |inmueble| %>
+      <tr>
+        <td><%= inmueble.numero %></td>
+        <td><%= inmueble.piso %></td>
+        <td><%= inmueble.portal %></td>
+        <td><%= inmueble.puerta %></td>
+        <td><%= inmueble.nombre %></td>
+        <td><%= inmueble.orden %></td>
+        <td><%= inmueble.cod_postal %></td>
+        <td><%= inmueble.escalera %></td>
+        <td><%= inmueble.inmueblescol %></td>
+        <td><%= link_to 'Show', inmueble %></td>
+        <td><%= link_to 'Edit', edit_inmueble_path(inmueble) %></td>
+        <td><%= link_to 'Destroy', inmueble, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inmueble', new_inmueble_path %>
