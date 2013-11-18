@@ -5,7 +5,6 @@ class CreateLineaFacturas < ActiveRecord::Migration
       t.integer :numero
       t.text :descripcion
       t.float :importe
-      t.string :periodo
       t.float :lectura
 
 
