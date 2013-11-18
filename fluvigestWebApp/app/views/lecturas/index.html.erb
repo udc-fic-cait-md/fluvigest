@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>FLUVIGEST: Lecturas de contadores</title>
+</head>
+
+<body>
+   <p>Crear nueva entrada</p>
+   <h1>Lista de lecturas realizadas</h1>
+   <p>Filtrar resultados</p>
+   <p>(Datos de ejemplo)</p>
+   <table>
+   <thead>
+   <th>Id</th>
+   <th>Lectura</th>
+   <th>Data</th>
+   <th>Lectura anterior</th>
+   <th>Id. usuario</th>
+   <th>Id. contador</th>
+   <th>Tipo incidencia</th>
+   <th>Incidencia</th>
+   </thead>
+   <tbody>
+   <tr>
+   <td class="id">1</td>
+   <td class="lectura">100 m3</td>
+   <td class="data">12-07-2013</td>
+   <td class="lectura_anterior">80 m3</td>
+   <td class="usuarios_id">56272</td>
+   <td class="contadores_id">56dj3</td>
+   <td class="tincidencias_id">1</td>
+   <td class="incidencia">Descripcion de la incidencia</td>
+   </tr>
+   <tr>
+   <td class="id">2</td>
+   <td class="lectura">200 m3</td>
+   <td class="data">13-07-2013</td>
+   <td class="lectura_anterior">160 m3</td>
+   <td class="usuarios_id">39438</td>
+   <td class="contadores_id">9dd42</td>
+   <td class="tincidencias_id"></td>
+   <td class="incidencia"></td>
+   </tr>
+   </tbody>
+   </table>
+   
+   <%= link_to 'Back', root_path %>
+   
+</body>
+</html>
