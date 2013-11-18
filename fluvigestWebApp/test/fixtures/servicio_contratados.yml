@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  contrato_id: 
+  tipo_servicio_id: 
+  fecha_inicio: 2013-11-18
+  fecha_fin: 2013-11-18
+  tipo_tarifa_id: 
+
+two:
+  contrato_id: 
+  tipo_servicio_id: 
+  fecha_inicio: 2013-11-18
+  fecha_fin: 2013-11-18
+  tipo_tarifa_id: 

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ccc: MyString
+  titular: MyString
+  direccion: MyString
+  telefono: MyString
+  nif: MyString
+  fecha_inicio: 2013-11-18
+  fecha_fin: 2013-11-18
+  contrato_id: 
+
+two:
+  ccc: MyString
+  titular: MyString
+  direccion: MyString
+  telefono: MyString
+  nif: MyString
+  fecha_inicio: 2013-11-18
+  fecha_fin: 2013-11-18
+  contrato_id: 

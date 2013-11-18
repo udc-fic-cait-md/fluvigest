@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fecha_inicio: 2013-11-18
+  fecha_fin: 2013-11-18
+  abonado_id: 
+  tipo_forma_pago_id: 
+
+two:
+  fecha_inicio: 2013-11-18
+  fecha_fin: 2013-11-18
+  abonado_id: 
+  tipo_forma_pago_id: 
