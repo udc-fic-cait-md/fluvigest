@@ -11,11 +11,12 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: fluvigestWebApp_development
+  database: fluvigest
   pool: 5
-  username: root	
-  password: toor
-  socket: /tmp/mysql.sock
+  username: fluvigest
+  password: fluvigest
+  host: 127.0.0.1
+  port: 3306
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -23,17 +24,19 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: fluvigestWebApp_test
+  database: fluvigest
   pool: 5
-  username: root
-  password: toor
-  socket: /tmp/mysql.sock
+  username: fluvigest
+  password: fluvigest
+  host: 127.0.0.1
+  port: 3306
 
 production:
   adapter: mysql2
   encoding: utf8
-  database: fluvigestWebApp_production
+  database: fluvigest
   pool: 5
-  username: root
-  password: toor
-  socket: /tmp/mysql.sock
+  username: fluvigest
+  password: fluvigest
+  host: 127.0.0.1
+  port: 3306
