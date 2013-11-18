@@ -1,0 +1,37 @@
+<h1>Listing contadores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Num serie</th>
+      <th>Calibre</th>
+      <th>Dt instalacion</th>
+      <th>Dt retirada</th>
+      <th>Dt revision</th>
+      <th>Estado</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contadores.each do |contadore| %>
+      <tr>
+        <td><%= contadore.num_serie %></td>
+        <td><%= contadore.calibre %></td>
+        <td><%= contadore.dt_instalacion %></td>
+        <td><%= contadore.dt_retirada %></td>
+        <td><%= contadore.dt_revision %></td>
+        <td><%= contadore.estado %></td>
+        <td><%= link_to 'Show', contadore %></td>
+        <td><%= link_to 'Edit', edit_contadore_path(contadore) %></td>
+        <td><%= link_to 'Destroy', contadore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contadore', new_contadore_path %>
