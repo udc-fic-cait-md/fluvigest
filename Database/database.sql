@@ -43,20 +43,20 @@ DROP TABLE IF EXISTS `fluvigest`.`barrios` ;
 
 CREATE TABLE IF NOT EXISTS `fluvigest`.`barrios` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 COMMENT = 'Táboa que almacena os datos dos distintos barrios da cidade\n';
 
 
 -- -----------------------------------------------------
--- Table `fluvigest`.`ruas`
+-- Table `fluvigest`.`calles`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `fluvigest`.`ruas` ;
+DROP TABLE IF EXISTS `fluvigest`.`calles` ;
 
-CREATE TABLE IF NOT EXISTS `fluvigest`.`ruas` (
+CREATE TABLE IF NOT EXISTS `fluvigest`.`calles` (
   `id` INT NOT NULL,
-  `nome` VARCHAR(45) NULL,
+  `nombre` VARCHAR(45) NULL,
   `zona` VARCHAR(45) NULL,
   `barrios_id` INT NOT NULL,
   PRIMARY KEY (`id`),
@@ -126,29 +126,29 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `fluvigest`.`inmobles`
+-- Table `fluvigest`.`inmuebles`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `fluvigest`.`inmobles` ;
+DROP TABLE IF EXISTS `fluvigest`.`inmuebles` ;
 
-CREATE TABLE IF NOT EXISTS `fluvigest`.`inmobles` (
+CREATE TABLE IF NOT EXISTS `fluvigest`.`inmuebles` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `numero` VARCHAR(10) NULL,
   `piso` VARCHAR(45) NULL,
   `portal` VARCHAR(5) NULL,
-  `porta` VARCHAR(5) NULL,
-  `nome` VARCHAR(100) NULL,
-  `orde` INT NULL,
+  `puerta` VARCHAR(5) NULL,
+  `nombre` VARCHAR(100) NULL,
+  `orden` INT NULL,
   `cod_postal` VARCHAR(10) NULL,
-  `escaleira` VARCHAR(45) NULL,
-  `ruas_id` INT NOT NULL,
+  `escalera` VARCHAR(45) NULL,
+  `calles_id` INT NOT NULL,
   `inmoblescol` VARCHAR(45) NULL,
   `contrato_id` INT NULL,
-  PRIMARY KEY (`id`, `ruas_id`),
-  INDEX `fk_inmobles_ruas1_idx` (`ruas_id` ASC),
+  PRIMARY KEY (`id`, `calles_id`),
+  INDEX `fk_inmobles_ruas1_idx` (`calles_id` ASC),
   INDEX `fk_inmobles_contratos` (`contrato_id` ASC),
   CONSTRAINT `fk_inmobles_ruas1`
-    FOREIGN KEY (`ruas_id`)
-    REFERENCES `fluvigest`.`ruas` (`id`)
+    FOREIGN KEY (`calles_id`)
+    REFERENCES `fluvigest`.`calles` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_inmobles_contratos`
@@ -169,23 +169,23 @@ CREATE TABLE IF NOT EXISTS `fluvigest`.`contadores` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `num_serie` VARCHAR(45) NOT NULL,
   `calibre` VARCHAR(45) NULL,
-  `data_instalacion` DATE NULL,
-  `data_retirada` DATE NULL,
+  `dt_instalacion` DATE NULL,
+  `dt_retirada` DATE NULL,
   `modelos_contadores_id` INT NOT NULL,
-  `inmobles_id` INT NOT NULL,
-  `data_revision` DATE NULL,
+  `inmuebles_id` INT NOT NULL,
+  `dt_revision` DATE NULL,
   `estado` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_contadores_modelos_contadores1` (`modelos_contadores_id` ASC),
-  INDEX `fk_contadores_inmobles1` (`inmobles_id` ASC),
+  INDEX `fk_contadores_inmobles1` (`inmuebles_id` ASC),
   CONSTRAINT `fk_contadores_modelos_contadores1`
     FOREIGN KEY (`modelos_contadores_id`)
     REFERENCES `fluvigest`.`modelos_contadores` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_contadores_inmobles1`
-    FOREIGN KEY (`inmobles_id`)
-    REFERENCES `fluvigest`.`inmobles` (`id`)
+    FOREIGN KEY (`inmuebles_id`)
+    REFERENCES `fluvigest`.`inmuebles` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -272,7 +272,7 @@ CREATE TABLE IF NOT EXISTS `fluvigest`.`abonos` (
   INDEX `fk_abonos_persoas1` (`persoas_id` ASC),
   CONSTRAINT `fk_abonos_inmobles1`
     FOREIGN KEY (`inmobles_id`)
-    REFERENCES `fluvigest`.`inmobles` (`id`)
+    REFERENCES `fluvigest`.`inmuebles` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_abonos_persoas1`
@@ -324,13 +324,18 @@ DROP TABLE IF EXISTS `fluvigest`.`facturas` ;
 
 CREATE TABLE IF NOT EXISTS `fluvigest`.`facturas` (
   `id` INT NOT NULL,
-  `fecha_factura` DATE NOT NULL,
   `nombre_cliente` VARCHAR(45) NOT NULL,
-  `ap1_cliente` VARCHAR(45) NOT NULL,
-  `ap2_cliente` VARCHAR(45) NOT NULL,
+  `dni` VARCHAR(9) NULL,
   `direccion` VARCHAR(45) NOT NULL,
-  `dni` VARCHAR(10) NOT NULL,
-  `cod_postal` INT NOT NULL,
+  `codigo_postal` INT NOT NULL,
+  `provincia` VARCHAR(45) NOT NULL,
+  `poblacion` INT NOT NULL,
+  `banco` VARCHAR(45) NOT NULL,
+  `numero_cuenta` VARCHAR(45) NOT NULL,
+  `periodo` VARCHAR(45) NOT NULL,
+  `fecha_emision` DATE NOT NULL,
+  `detalle_facturacion` VARCHAR(200) NOT NULL,
+  `estado` INT NOT NULL,
   `contrato_id` INT NOT NULL,
   `remesas_id` INT NULL,
   PRIMARY KEY (`id`),
@@ -360,6 +365,7 @@ CREATE TABLE IF NOT EXISTS `fluvigest`.`linea_facturas` (
   `periodo` DATE NOT NULL,
   `cantidad` INT NOT NULL,
   `concepto` VARCHAR(200) NOT NULL,
+  `lectura` INT NOT NULL,
   `importe` DOUBLE NOT NULL,
   `facturas_id` INT NOT NULL,
   PRIMARY KEY (`id`),
