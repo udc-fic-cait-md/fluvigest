@@ -8,6 +8,10 @@ FluvigestWebApp::Application.routes.draw do
   get 'facturas/emitir' => 'facturas#show_emitir'
   post 'facturas/emitir' => 'facturas#emitir'
 
+
+  get 'tarifas/new'=> 'tarifas#new'
+  get 'tarifas/show'=>'taridas#show'
+
   resources :tarifas
 
   resources :linea_facturas

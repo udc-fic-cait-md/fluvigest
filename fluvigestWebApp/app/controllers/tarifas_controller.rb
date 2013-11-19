@@ -16,7 +16,7 @@ class TarifasController < ApplicationController
 
   # GET /tarifas/new
   def new
-    @tarifa = Tarifa.new
+    @tipoTarifa = TipoTarifas.new
   end
 
   # GET /tarifas/1/edit
