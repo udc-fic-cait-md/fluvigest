@@ -111,6 +111,19 @@ class FacturasController < ApplicationController
   # FIN GENERACION DE FACTURAS #
   ##############################
 
+  def emitir
+    peri = params[:periodo][0]
+    anho = params[:anho][0]
+
+    Factura.where(:periodo => peri, :estado => 0).update_all(:estado => 2, :fecha_emision => Time.now.utc)
+
+    ##no siempre se emiten controlar esto
+    @mensaje_emitidas ="Se han emitido las facturas."
+
+    render 'show_emitir'
+
+  end
+
   #Busqueda para odernar y paginar la tabla de facturas
 
   private
