@@ -53,5 +53,18 @@
 					</div>
             </article>
         </section>
+        <section id="seccion">
+            <article>
+               <div id="abonados">
+                        <fieldset>                      
+                            <legend>Abonados</legend>
+                            <ul>
+                                <li><%= link_to 'Listar', controller: "abonados" %></li>
+                                <li><%= link_to 'Crear', new_abonado_path %></li>
+                            </ul>
+                        </fieldset>
+                    </div>
+            </article>
+        </section>
     </body>
 </html>
