@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  nombre: MyString
+  descripcion: MyString
+  tipo_servicio_id: 1
+
+two:
+  id: 1
+  nombre: MyString
+  descripcion: MyString
+  tipo_servicio_id: 1
