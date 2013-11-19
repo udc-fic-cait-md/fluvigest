@@ -13,8 +13,8 @@ development:
   encoding: utf8
   database: fluvigestWebApp_development
   pool: 5
-  username: fluvigest
-  password: fluvigest
+  username: root
+  password: toor
   socket: /var/run/mysqld/mysqld.sock
   # host: 127.0.0.1
   # port: 3306
@@ -27,8 +27,8 @@ test:
   encoding: utf8
   database: fluvigestWebApp_test
   pool: 5
-  username: fluvigest
-  password: fluvigest
+  username: root
+  password: toor
   socket: /var/run/mysqld/mysqld.sock
   # host: 127.0.0.1
   # port: 3306
@@ -38,8 +38,8 @@ production:
   encoding: utf8
   database: fluvigestWebApp_production
   pool: 5
-  username: fluvigest
-  password: fluvigest
+  username: root
+  password: toor
   socket: /var/run/mysqld/mysqld.sock
   # host: 127.0.0.1
   # port: 3306
