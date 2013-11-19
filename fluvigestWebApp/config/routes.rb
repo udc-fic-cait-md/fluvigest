@@ -1,4 +1,5 @@
 FluvigestWebApp::Application.routes.draw do
+
   resources :abonados
   resources :contadores
   resources :inmuebles
@@ -8,11 +9,29 @@ FluvigestWebApp::Application.routes.draw do
 
   get "main/index"
   root 'main#index'
+
+  get 'facturas/generar' => 'facturas#show_generar'
+  post 'facturas/generar' => 'facturas#generar'
+
+  get 'facturas/show_factura' => 'facturas#show_factura'
+
+  resources :tarifas
+
+  resources :linea_facturas
+  resources :facturas do
+    resources :linea_facturas
+  end
+  resources :facturas
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+
+# === Este era el index de facturas
+  # root 'facturas#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
