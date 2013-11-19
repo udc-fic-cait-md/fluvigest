@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20131112230901) do
     t.string   "provincia"
     t.string   "banco"
     t.string   "numero_cuenta"
+    t.string   "dni"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
