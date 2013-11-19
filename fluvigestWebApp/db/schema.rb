@@ -166,4 +166,9 @@ ActiveRecord::Schema.define(version: 20131112230901) do
     t.boolean  "engancheContador"
   end
 
+  create_table "lecturas", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 end
