@@ -1,0 +1,22 @@
+<h1>EMITIR FACTURACION</h1>
+
+<div>
+  <%= form_tag '/facturas/emitir' do %>
+      Seleccione el periodo que desea emitir
+      <%= select('periodo', '', FacturasHelper::PERIODOS_FACTURACION, {include_blank: true}) %>
+
+      <%= select('anho', '', obtener_anhos, {include_blank: true}) %>
+
+      <%= submit_tag 'Emitir Facturas' %>
+
+  <% end %>
+
+
+</div>
+<hr/>
+
+<span style="color:Blue;font-weight:bold">
+  <p><%= @mensaje_emitidas %></p>
+</span>
+<p />
+
