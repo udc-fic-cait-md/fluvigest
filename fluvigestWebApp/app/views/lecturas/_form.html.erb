@@ -1,0 +1,46 @@
+<%= form_for @lectura do |f| %>
+  <% if @lectura.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@lectura.errors.count, "error") %> prohibited
+      this lectura from being saved:</h2>
+    <ul>
+    <% @lectura.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :lectura %><br>
+    <%= f.text_field :lectura %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br>
+    <%= f.datetime_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :lectura_anterior %><br>
+    <%= f.text_field :lectura_anterior %>
+  </div>
+  <div class="field">
+    <%= f.label :usuarios_id %><br>
+    <%= f.text_field :usuarios_id %>
+  </div>
+    <div class="field">
+    <%= f.label :contadores_id %><br>
+    <%= f.text_field :contadores_id %>
+  </div>
+  <div class="field">
+    <%= f.label :tincidencias_id %><br>
+    <%= f.text_field :tincidencias_id %>
+  </div>
+  <div class="field">
+    <%= f.label :incidencia %><br>
+    <%= f.text_field :incidencia %>
+  </div>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20131118181006) do
   end
 
   create_table "lecturas", force: true do |t|
+    t.decimal  "lectura",          precision: 10, scale: 0
+    t.string   "incidencia"
+    t.datetime "fecha"
+    t.decimal  "lectura_anterior", precision: 10, scale: 0
+    t.integer  "usuarios_id"
+    t.integer  "contadores_id"
+    t.integer  "tincidencias_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
