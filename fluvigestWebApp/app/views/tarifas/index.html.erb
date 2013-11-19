@@ -3,21 +3,21 @@
 <table>
   <thead>
     <tr>
-      <th>Ver</th>
-      <th>Editar</th>
-      <th>Borrar</th>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>TipoServicio</th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @tarifas.each do |tarifa| %>
+    <% @tiposTarifa.each do |tarifa| %>
       <tr>
-        <td><%= tarifa.nombre %> </td>
-        <td><%= tarifa.tipo %></td>
-        <td><%= tarifa.precioAlquiler %> €</td>
-        <td><%= tarifa.precioBasura %> € </td>
-        <td><%= tarifa.engancheContador %> </td>
-
+        <td><%= tarifa.nombre %>/td>
+        <td><%= tarifa.descripcion %>/td>
+        <td> Falta Enlazar</td>
         <td><%= link_to 'Show', tarifa %></td>
         <td><%= link_to 'Edit', edit_tarifa_path(tarifa) %></td>
         <td><%= link_to 'Destroy', tarifa, method: :delete, data: { confirm: 'Are you sure?' } %></td>

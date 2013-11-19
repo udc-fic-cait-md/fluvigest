@@ -4,12 +4,14 @@ class TarifasController < ApplicationController
   # GET /tarifas
   # GET /tarifas.json
   def index
-    @tarifas = Tarifa.all
+    @tiposTarifa = TipoTarifas.all
   end
 
   # GET /tarifas/1
   # GET /tarifas/1.json
   def show
+    @tipoTarifa = TipoTarifas.find(params[:id])
+    @tarifas = Tarifas.where(:tipo_tarifas => @tipoTarifa.id)
   end
 
   # GET /tarifas/new
@@ -69,9 +71,6 @@ class TarifasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tarifa_params
-
-
-      params.require(:tarifa).permit(:nombre,:descripcion,:tipo,:precioBasura,:precioAlquiler,:engancheContador)
-     # params[:tarifa]
+      params[:tarifa]
     end
 end
