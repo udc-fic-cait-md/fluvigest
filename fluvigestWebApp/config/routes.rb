@@ -23,15 +23,13 @@ FluvigestWebApp::Application.routes.draw do
   end
   resources :facturas
 
+  resources :lecturas
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
-# === Este era el index de facturas
-  # root 'facturas#index'
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
