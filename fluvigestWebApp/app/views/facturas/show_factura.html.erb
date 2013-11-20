@@ -3,7 +3,10 @@
   <table width="700" align="center">
     <tr height="100">
       <td colspan="3"><h1>Fluvigest S.A.</h1></td>
-      <td><img src="../../assets/images/agua.JPG" width="100" height="92" style="padding-left:100px;" align="middle" /></td>
+      <td>
+        <%= image_tag("logo-transparente2.png", :style => "padding-left:100px" ) %>
+        <!--<img src="../../assets/images/agua.JPG" width="100" height="92" style="padding-left:100px;" align="middle" /> -->
+      </td>
     </tr>
     <tr>
       <td width="100">Nº Factura:</td>
@@ -48,7 +51,7 @@
               <tr>
                 <td><%= linea_factura.descripcion %></td>
                 <td><%= @factura.periodo %></td>
-                <td>0.10e/l</td>
+                <td>0.10e</td>
                 <td><%= linea_factura.lectura %></td>
                 <td><%= linea_factura.importe %>e</td>
               </tr>
@@ -61,7 +64,7 @@
                <b>Importe total</b>
             </td>
             <td>
-              <b><%= @total %></b>
+              <b><%= format("%.2f",@total) %>e</b>
             </td>
           </tr>
         </table>
@@ -71,4 +74,6 @@
   </table>
 
 </div>
-<%= link_to 'Volver', facturas_path, {:class => "botonLink"} %>
+<div style="width:730px; align:center;margin:0 auto; padding-left: 500px;">
+    <%= link_to 'Volver', facturas_path, {:class => "botonLink"} %>
+</div>
