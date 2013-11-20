@@ -1,0 +1,29 @@
+<h1>Listing calles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Zona</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @calles.each do |calle| %>
+      <tr>
+        <td><%= calle.nombre %></td>
+        <td><%= calle.zona %></td>
+        <td><%= link_to 'Show', calle %></td>
+        <td><%= link_to 'Edit', edit_calle_path(calle) %></td>
+        <td><%= link_to 'Destroy', calle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Calle', new_calle_path %>

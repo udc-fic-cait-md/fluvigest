@@ -1,0 +1,59 @@
+<p>
+  <strong>Nombre:</strong>
+  <%= @abonado.nombre %>
+</p>
+ 
+<p>
+  <strong>Apellidos:</strong>
+  <%= @abonado.apellidos %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @abonado.telefono %>
+</p>
+
+<p>
+  <strong>Razon Social:</strong>
+  <%= @abonado.razon_social %>
+</p>
+
+<p>
+  <strong>NIF:</strong>
+  <%= @abonado.nif %>
+</p>
+
+<h2>Contratos</h2>
+<% @abonado.contratos.each do |contrato| %>
+
+  <p>
+    <strong>Fecha Inicio:</strong>
+    <%= contrato.fecha_inicio %>
+  </p>
+ 
+  <p>
+    <strong>Fecha Fin:</strong>
+    <%= contrato.fecha_fin %>
+  </p>
+  
+  <hr width="50%" align="left" noshade>
+
+<% end %>
+
+<h2>Crear nuevo contrato:</h2>
+<%= form_for([@abonado, @abonado.contratos.build]) do |f| %>
+  <p>
+    <%= f.label :fecha_inicio %><br />
+    <%= f.date_field :fecha_inicio %>
+  </p>
+  <p>
+    <%= f.label :fecha_fin %><br />
+    <%= f.date_field :fecha_fin %>
+  </p>
+  <p>
+    <%= f.submit "Crear Contrato"%>
+  </p>
+<% end %>
+
+<%= link_to 'Back', abonados_path %>
+| <%= link_to 'Editar', edit_abonado_path(@edit) %>
