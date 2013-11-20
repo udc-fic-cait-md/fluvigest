@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131118181006) do
+ActiveRecord::Schema.define(version: 20131120115246) do
 
   create_table "abonados", force: true do |t|
     t.string   "nombre"
@@ -20,14 +20,44 @@ ActiveRecord::Schema.define(version: 20131118181006) do
     t.datetime "updated_at"
   end
 
+  create_table "contadores", force: true do |t|
+    t.string  "num_serie",             limit: 45, null: false
+    t.date    "data_instalacion"
+    t.date    "data_retirada"
+    t.integer "modelos_contadores_id",            null: false
+    t.integer "inmobles_id",                      null: false
+  end
+
+  add_index "contadores", ["inmobles_id"], name: "fk_contadores_inmobles1", using: :btree
+  add_index "contadores", ["modelos_contadores_id"], name: "fk_contadores_modelos_contadores1", using: :btree
+
   create_table "lecturas", force: true do |t|
-    t.decimal  "lectura",          precision: 10, scale: 0
+    t.float    "lectura"
     t.string   "incidencia"
     t.datetime "fecha"
-    t.decimal  "lectura_anterior", precision: 10, scale: 0
+    t.float    "lectura_anterior"
     t.integer  "usuarios_id"
     t.integer  "contadores_id"
     t.integer  "tincidencias_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "modelos_contadores", force: true do |t|
+    t.string "marca",  limit: 45, null: false
+    t.string "modelo", limit: 45, null: false
+  end
+
+  create_table "tincidencias", force: true do |t|
+    t.string "descricion", limit: 250, null: false
+  end
+
+  create_table "usuarios", force: true do |t|
+    t.string   "usuario"
+    t.string   "password"
+    t.datetime "fechacreacion"
+    t.string   "nombre"
+    t.string   "apellidos"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
