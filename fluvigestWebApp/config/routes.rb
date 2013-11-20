@@ -1,6 +1,8 @@
 FluvigestWebApp::Application.routes.draw do
 
-  resources :abonados
+  resources :abonados do
+    resources :contratos
+  end
   resources :contadores
   resources :inmuebles
   resources :barrios

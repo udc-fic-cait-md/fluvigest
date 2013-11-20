@@ -21,3 +21,4 @@
 # Ignoro el archivo de RubyMine
 .idea/
 
+.DS_Store

@@ -20,7 +20,22 @@
     <%= f.text_field :apellidos %>
   </p>
  
+ <p>
+    <%= f.label :telefono %><br>
+    <%= f.text_field :telefono %>
+  </p>
+  
   <p>
-    <%= f.submit %>
+    <%= f.label(:razon_social,'Razon Social') %><br>
+    <%= f.text_field :razon_social %>
+  </p>
+  
+  <p>
+    <%= f.label(:nif,'NIF') %><br>
+    <%= f.text_field :nif %>
+  </p>
+
+  <p>
+    <%= f.submit "Crear Abonado" %>
   </p>
 <% end %>
