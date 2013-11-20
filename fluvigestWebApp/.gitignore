@@ -15,6 +15,10 @@
 /log/*.log
 /tmp
 
+# Ignorar fichero de proyecto de Eclipse (Plugin Aptana...)
+.project
+
 # Ignoro el archivo de RubyMine
 .idea/
 
+.DS_Store

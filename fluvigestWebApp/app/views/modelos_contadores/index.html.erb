@@ -1,0 +1,29 @@
+<h1>Listing modelos_contadores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @modelos_contadores.each do |modelos_contadore| %>
+      <tr>
+        <td><%= modelos_contadore.marca %></td>
+        <td><%= modelos_contadore.modelo %></td>
+        <td><%= link_to 'Show', modelos_contadore %></td>
+        <td><%= link_to 'Edit', edit_modelos_contadore_path(modelos_contadore) %></td>
+        <td><%= link_to 'Destroy', modelos_contadore, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Modelos contadore', new_modelos_contadore_path %>
