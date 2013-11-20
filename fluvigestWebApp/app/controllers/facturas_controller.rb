@@ -114,11 +114,12 @@ class FacturasController < ApplicationController
   def emitir
     peri = params[:periodo][0]
     anho = params[:anho][0]
+    periodo = peri+" "+anho
 
-    Factura.where(:periodo => peri, :estado => 0).update_all(:estado => 2, :fecha_emision => Time.now.utc)
+    Factura.where(:periodo => periodo, :estado => 0).update_all(:estado => 2, :fecha_emision => Time.now.utc)
 
     ##no siempre se emiten controlar esto
-    @mensaje_emitidas ="Se han emitido las facturas."
+    @mensaje_emitidas ="Se han emitido las facturas correspondientes al periodo #{periodo}"
 
     render 'show_emitir'
 
