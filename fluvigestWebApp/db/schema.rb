@@ -20,18 +20,9 @@ ActiveRecord::Schema.define(version: 20131120115246) do
     t.datetime "updated_at"
   end
 
-  create_table "contadores", force: true do |t|
-    t.string  "num_serie",             limit: 45, null: false
-    t.date    "data_instalacion"
-    t.date    "data_retirada"
-    t.integer "modelos_contadores_id",            null: false
-    t.integer "inmobles_id",                      null: false
-  end
-
-  add_index "contadores", ["inmobles_id"], name: "fk_contadores_inmobles1", using: :btree
-  add_index "contadores", ["modelos_contadores_id"], name: "fk_contadores_modelos_contadores1", using: :btree
-
   create_table "lecturas", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.float    "lectura"
     t.string   "incidencia"
     t.datetime "fecha"
@@ -39,17 +30,6 @@ ActiveRecord::Schema.define(version: 20131120115246) do
     t.integer  "usuarios_id"
     t.integer  "contadores_id"
     t.integer  "tincidencias_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "modelos_contadores", force: true do |t|
-    t.string "marca",  limit: 45, null: false
-    t.string "modelo", limit: 45, null: false
-  end
-
-  create_table "tincidencias", force: true do |t|
-    t.string "descricion", limit: 250, null: false
   end
 
   create_table "usuarios", force: true do |t|
