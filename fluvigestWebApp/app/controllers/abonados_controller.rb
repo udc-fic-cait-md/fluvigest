@@ -44,6 +44,6 @@ class AbonadosController < ApplicationController
     
     private
         def abonado_params
-            params.require(:abonado).permit(:nombre, :apellidos)
+            params.require(:abonado).permit(:nombre, :apellidos, :telefono, :razon_social, :nif)
         end
 end

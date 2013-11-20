@@ -2,17 +2,19 @@
 <%= link_to 'Nuevo abonado', new_abonado_path %> 
 <table>
   <tr>
+    <th>Numero</th>
     <th>Nombre</th>
     <th>Apellidos</th>
   </tr>
  
   <% @abonados.each do |abonado| %>
     <tr>
+      <td><%= abonado.id %></td>
       <td><%= abonado.nombre %></td>
       <td><%= abonado.apellidos %></td>
-      <td><%= link_to 'Show', abonado %></td>
-      <td><%= link_to 'Edit', edit_abonado_path(abonado) %></td>
-      <td><%= link_to 'Destroy', abonado_path(abonado),
+      <td><%= link_to 'Ver', abonado %></td>
+      <td><%= link_to 'Editar', edit_abonado_path(abonado) %></td>
+      <td><%= link_to 'Borrar', abonado_path(abonado),
                     method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
