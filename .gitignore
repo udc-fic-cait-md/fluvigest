@@ -1,2 +1,2 @@
-/fluvigestWebApp/config/*.yml
+/fluvigestWebApp/config/database.yml
 .DS_Store
