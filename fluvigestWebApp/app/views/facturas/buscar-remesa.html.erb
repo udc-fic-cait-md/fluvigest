@@ -1,0 +1,34 @@
+<form method="get" action="/facturas/listar-remesa">
+	<h1 style="text-align: center">BÚSQUEDA DE REMESAS</h1>
+
+	<h4 style="text-aling left"> Debe rellenar como mínimo los campos Fecha inicio y Fecha fin. </h4>
+
+<div class="field">
+	<label for="start-date"><strong>Fecha inicio:</strong></label>
+	<input type="text" name="fecha_inicio" placeholder="yyyy-mm-dd" id="start-date">
+	<br />
+  </div>
+
+  <div class="field">
+	<label for="end-date"><strong>Fecha fin:</strong></label>
+	<input type="text" name="fecha_final" placeholder="yyyy-mm-dd" id="end-date">
+	<br />
+  </div>
+
+  <div class="field">	
+	<label for="codigo_postal"><strong>Codigo Postal:</strong></label>
+	<input type="text" name="codigo_postal" id="codigo_postal">
+	<br />
+  </div>
+
+	<input type="submit" value="Buscar">
+</form>
+
+<script>
+	$("#start-date").datepicker({ dateFormat: "yy-mm-dd" });
+	$("#end-date").datepicker({ dateFormat: "yy-mm-dd" });
+</script>
+<br>
+
+<a class="botonLink" href="/facturas">Volver</a>
+

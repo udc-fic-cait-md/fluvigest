@@ -1,5 +1,11 @@
 FluvigestWebApp::Application.routes.draw do
 
+  get '/facturas/listar-remesa' => 'facturas#listarRemesa'
+  get '/facturas/buscar-remesa' => 'facturas#buscarRemesa'
+  get '/facturas/buscar_factura' => 'facturas#buscarFactura'
+  get '/facturas/listar_factura' => 'facturas#listarFactura'
+  get '/facturas/generar-remesa' => 'facturas#generarRemesa'
+
   resources :abonados do
     resources :contratos
   end
