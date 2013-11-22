@@ -1,0 +1,37 @@
+<form method="get" action="/facturas/listar_factura">
+
+<h1 style="text-align: center">BÚSQUEDA DE FACTURAS</h1>
+
+	<h4 style="text-aling left"> Debe rellenar los campos Fecha inicio, Fecha fin y al menos uno más. </h4>
+
+	<label for="start-date"><strong>Fecha inicio:</strong></label>
+	<input type="text" name="fecha_inicio" placeholder="yyyy-mm-dd" id="start-date">
+	<br />
+
+  <!--   <label for="periodo"><strong>Periodo de facturación:</strong></label>
+		<%= select('periodo', '', FacturasHelper::PERIODOS_FACTURACION, {include_blank: true}) %>
+      	<%= select('anho', '', obtener_anhos, {include_blank: true}) %>    -->
+
+
+	<label for="end-date"><strong>Fecha fin:</strong></label>
+	<input type="text" name="fecha_final" placeholder="yyyy-mm-dd" id="end-date">
+	<br />
+
+	<label for="dni"><strong>DNI:</strong></label>
+	<input type="text" name="dni" id="dni">
+	<br />
+
+	<label for="codigo_postal"><strong>Codigo Postal:</strong></label>
+	<input type="text" name="codigo_postal" id="codigo_postal">
+	<br />
+	
+	<input type="submit" value="Buscar">
+</form>
+
+<script>
+	$("#start-date").datepicker({ dateFormat: "yy-mm-dd" });
+	$("#end-date").datepicker({ dateFormat: "yy-mm-dd" });
+</script>
+
+<br>
+<a class="botonLink" href="/facturas">Volver</a>

@@ -14,6 +14,8 @@ class CreateFacturas < ActiveRecord::Migration
       t.string :banco
       t.string :numero_cuenta
       t.string :dni
+	  t.boolean :domiciliada
+	  t.integer :idRemesa
 
       t.timestamps
     end
