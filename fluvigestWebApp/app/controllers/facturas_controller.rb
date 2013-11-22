@@ -111,6 +111,57 @@ class FacturasController < ApplicationController
   # FIN GENERACION DE FACTURAS #
   ##############################
 
+  ##############################
+###### REMESAS #muestra el formulario de busqueda de remesa
+  ##############################
+  def buscarRemesa
+    render 'facturas/buscar-remesa'
+  end
+
+ def generarRemesa
+	render 'facturas/generacion_remesa'
+ end
+
+  # muestra las facturas entre una fecha de inicio y una de fin. Solo las muestra si están domiciliadas y no pertenecen a ninguna remesa
+  def listarRemesa
+	if params[:codigo_postal].to_i == 0
+		@facturas = Factura.where("created_at >= ? AND created_at <= ? AND domiciliada = true AND idRemesa is null", params[:fecha_inicio], params[:fecha_final])
+	#@facturas = Factura.find_by_sql("SELECT * FROM Factura WHERE created_at >= ? AND created_at <= ? AND domiciliada = true AND idRemesa = null", params[:fecha_inicio], params[:fecha_final])
+
+	else
+      @facturas = Factura.where("created_at >= ? AND created_at <= ? AND codigo_postal = ? AND domiciliada = true AND idRemesa is null", params[:fecha_inicio], params[:fecha_final], params[:codigo_postal])
+     end
+
+    render 'facturas/listado-remesas'
+  end
+
+
+  ########################
+  # BUSQUEDA DE FACTURAS #
+  ########################
+  def buscarFactura
+    render 'facturas/buscar_factura'
+  end
+
+
+  def listarFactura	
+
+    if params[:dni].to_i == 0
+    	@facturas = Factura.where("created_at >= ? AND created_at <= ? AND codigo_postal = ?", params[:fecha_inicio], params[:fecha_final], params[:codigo_postal])
+
+    elsif params[:codigo_postal].to_i == 0
+    	@facturas = Factura.where("created_at >= ? AND created_at <= ? AND dni= ?", params[:fecha_inicio], params[:fecha_final], params[:dni])
+
+	else
+       @facturas = Factura.where("created_at >= ? AND created_at <= ? AND dni = ? AND codigo_postal = ?", params[:fecha_inicio], params[:fecha_final], params[:dni], params[:codigo_postal])
+    end    
+    render 'facturas/listado-facturas'
+  end
+  ############################
+  # FIN BUSQUEDA DE FACTURAS #
+  ############################
+
+
   def emitir
     peri = params[:periodo][0]
     anho = params[:anho][0]
