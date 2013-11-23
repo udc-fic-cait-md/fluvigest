@@ -1,6 +1,7 @@
 class CreateFacturas < ActiveRecord::Migration
   def change
     create_table :facturas do |t|
+      t.references :contrato, index: true
       t.text :descripcion
       t.string :periodo
       t.date :fecha_emision
