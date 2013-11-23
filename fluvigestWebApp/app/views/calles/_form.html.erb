@@ -13,13 +13,13 @@
 
   <div class="field">
     <%= f.label :nombre %><br>
-    <%= f.text_field :nombre %>
+    <%= f.text_field :nombre, :required => true  %>
   </div>
   <div class="field">
     <%= f.label :zona %><br>
     <%= f.text_field :zona %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Aceptar" %>
   </div>
 <% end %>

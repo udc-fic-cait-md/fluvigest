@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Num serie:</strong>
+  <strong>Nº Serie:</strong>
   <%= @contadore.num_serie %>
 </p>
 
@@ -11,18 +11,18 @@
 </p>
 
 <p>
-  <strong>Dt instalacion:</strong>
-  <%= @contadore.dt_instalacion %>
+  <strong>Fecha Rnstalación:</strong>
+  <%= @contadore.dt_instalacion.strftime("%m/%d/%Y") %>
 </p>
 
 <p>
-  <strong>Dt retirada:</strong>
-  <%= @contadore.dt_retirada %>
+  <strong>Fecha Retirada:</strong>
+  <%= @contadore.dt_retirada.strftime("%m/%d/%Y") %>
 </p>
 
 <p>
-  <strong>Dt revision:</strong>
-  <%= @contadore.dt_revision %>
+  <strong>Fecha Revisión:</strong>
+  <%= @contadore.dt_revision.strftime("%m/%d/%Y") %>
 </p>
 
 <p>
@@ -30,5 +30,17 @@
   <%= @contadore.estado %>
 </p>
 
-<%= link_to 'Edit', edit_contadore_path(@contadore) %> |
-<%= link_to 'Back', contadores_path %>
+<p>
+  <strong>Marca:</strong>
+  <%= @modelo == nil ? "" : @modelo.marca %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @modelo == nil ? "" : @modelo.modelo%>
+</p>
+
+<%= link_to 'Editar', edit_contadore_path(@contadore) %> |
+<%= link_to 'Borrar', @contadore, method: :delete, data: { confirm: '¿Estas seguro?' } %> |
+<%= link_to 'Todos los Contadores', contadores_path %> |
+<%= link_to 'Inicio', root_path %>

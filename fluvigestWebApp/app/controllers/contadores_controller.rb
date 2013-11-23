@@ -10,6 +10,7 @@ class ContadoresController < ApplicationController
   # GET /contadores/1
   # GET /contadores/1.json
   def show
+		@modelo = @contadore.modelos_contadore
   end
 
   # GET /contadores/new
@@ -28,7 +29,7 @@ class ContadoresController < ApplicationController
 
     respond_to do |format|
       if @contadore.save
-        format.html { redirect_to @contadore, notice: 'Contadore was successfully created.' }
+        format.html { redirect_to @contadore, notice: 'el Contador ha sido creado correctamente.' }
         format.json { render action: 'show', status: :created, location: @contadore }
       else
         format.html { render action: 'new' }
@@ -69,6 +70,6 @@ class ContadoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contadore_params
-      params.require(:contadore).permit(:num_serie, :calibre, :dt_instalacion, :dt_retirada, :dt_revision, :estado)
+      params.require(:contadore).permit(:num_serie, :calibre, :dt_instalacion, :dt_retirada, :dt_revision, :estado, :modelos_contadore_id )
     end
 end

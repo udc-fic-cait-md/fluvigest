@@ -1,4 +1,4 @@
-<h1>Listing barrios</h1>
+<h1>Listado de Barrios</h1>
 
 <table>
   <thead>
@@ -14,9 +14,9 @@
     <% @barrios.each do |barrio| %>
       <tr>
         <td><%= barrio.nombre %></td>
-        <td><%= link_to 'Show', barrio %></td>
-        <td><%= link_to 'Edit', edit_barrio_path(barrio) %></td>
-        <td><%= link_to 'Destroy', barrio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver Barrio', barrio %></td>
+        <td><%= link_to 'Editar', edit_barrio_path(barrio) %></td>
+        <td><%= link_to 'Borrar', barrio, method: :delete, data: { confirm: '¿Estás Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,5 @@
 
 <br>
 
-<%= link_to 'New Barrio', new_barrio_path %>
+<%= link_to 'Nuevo Barrio', new_barrio_path %> |
+<%= link_to 'Inicio', root_path %>
