@@ -16,5 +16,4 @@ class Inmueble < ActiveRecord::Base
 			return maximo +1 
 		end
 	end
-
 end
