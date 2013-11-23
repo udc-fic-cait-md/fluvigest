@@ -15,13 +15,14 @@ development:
 
   adapter: mysql2
   encoding: utf8
-  database: fluvigest
+
+  database: fluvigestWebApp_development
   pool: 5
+
   username: root
   password: toor
-  #socket: /var/run/mysqld/mysqld.sock
-  host: 127.0.0.1
-  port: 3306
+
+  socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
 
@@ -31,22 +32,23 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: fluvigest
+
+  database: fluvigestWebApp_test
   pool: 5
+
   username: root
   password: toor
-  #socket: /var/run/mysqld/mysqld.sock
-  host: 127.0.0.1
-  port: 3306
+
+  socket: /var/run/mysqld/mysqld.sock
 
 production:
 
   adapter: mysql2
   encoding: utf8
-  database: fluvigest
+
+  database: fluvigestWebApp_production
   pool: 5
+
   username: root
   password: toor
-  #socket: /var/run/mysqld/mysqld.sock
-  host: 127.0.0.1
-  port: 3306
+  socket: /var/run/mysqld/mysqld.sock
