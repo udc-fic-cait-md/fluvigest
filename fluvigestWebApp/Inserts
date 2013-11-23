@@ -196,6 +196,32 @@ VALUES
 '2013-11-20 10:27:00',
 '2013-11-20 10:27:00'
 );
+INSERT INTO `fluvigestWebApp_development`.`domiciliacions`
+(`id`,
+`ccc`,
+`titular`,
+`direccion`,
+`telefono`,
+`nif`,
+`fecha_inicio`,
+`fecha_fin`,
+`contrato_id`,
+`created_at`,
+`updated_at`)
+VALUES
+(
+2,
+'2080 2541 21 2154785623',
+'Pedro García Mozante',
+'Plaza de Lugo',
+555888999,
+'12547854U',
+'2013-10-20',
+'2015-11-20',
+2,
+'2013-11-20 10:27:00',
+'2013-11-20 10:27:00'
+);
 
 INSERT INTO `fluvigestWebApp_development`.`tipo_servicios`
 (`id`,
