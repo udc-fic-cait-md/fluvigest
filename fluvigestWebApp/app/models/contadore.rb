@@ -1,3 +1,4 @@
 class Contadore < ActiveRecord::Base
-	belongs_to :modelos_contadore
+	has_one :modelos_contadore
+	belongs_to :inmueble
 end
