@@ -4,5 +4,4 @@ class Contadore < ActiveRecord::Base
 
 	validates_presence_of :num_serie
 	validates_presence_of :calibre
-
 end
