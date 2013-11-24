@@ -1,0 +1,2 @@
+module TipoTarifasHelper
+end

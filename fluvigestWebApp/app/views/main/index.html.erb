@@ -66,5 +66,36 @@
                     </div>
             </article>
         </section>
+        <section id="seccion">
+          <article>
+            <div id="facturacion">
+              <fieldset>
+                <legend>Facturas</legend>
+                <ul>
+                  <li><%= link_to 'Listar', controller: "facturas" %></li>
+                  <li><%= link_to 'Crear', new_factura_path %></li>
+                </ul>
+              </fieldset>
+            </div>
+          </article>
+        </section>
+        <section id="seccion">
+          <article>
+            <div id="tarifas y tipos">
+              <fieldset>
+                <legend>Facturas</legend>
+                <ul>
+                  <li><%= link_to 'Listar tipo de tarifas', controller: "tipo_tarifas" %></li>
+                  <li><%= link_to 'Crear un nuevo tipo de tarifa', new_tipo_tarifa_path %></li>
+                  <li><%= link_to 'Listar tarifas', controller: "tarifas" %></li>
+                  <li><%= link_to 'Crear una nueva tarifa', new_tarifa_path %></li>
+                </ul>
+              </fieldset>
+            </div>
+          </article>
+        </section>
+
+
+
     </body>
 </html>

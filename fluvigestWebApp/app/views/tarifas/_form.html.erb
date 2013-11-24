@@ -1,4 +1,4 @@
-<%= form_for(@tipoTarifa) do |f| %>
+<%= form_for(@tarifa) do |f| %>
   <% if @tarifa.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@tarifa.errors.count, "error") %> prohibited this tarifa from being saved:</h2>
@@ -10,6 +10,29 @@
       </ul>
     </div>
   <% end %>
+
+    <div class="field">
+      <label>Tipo de Tarifa</label>
+      <%= collection_select(:tarifa,:tipo_tarifa_id,@tipos,:id,:nombre) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :precio %><br>
+      <%= f.text_field :precio %>
+    </div>
+    <div class="field">
+      <%= f.label :fecha_inicio %><br>
+      <%= f.date_select :fecha_inicio %>
+    </div>
+    <div class="field">
+      <%= f.label :fecha_fin %><br>
+      <%= f.date_select :fecha_fin %>
+    </div>
+
+
+
+
+
 
   <div class="actions">
     <%= f.submit %>
