@@ -101,8 +101,9 @@ class FacturasController < ApplicationController
         "desde el #{fecha_inicio} hasta el #{fecha_fin}."
 
     if !resultados['facturas_incorrectas'].nil? && resultados['facturas_incorrectas'] != 0
-      @mensaje_error = "Existen #{resultados['facturas_incorrectas']} facturas que se han generado con algún tipo de error. " +
-        "Para ver dichas facturas pulse <a href='index?periodo=MARZO-ABRIL&anho=2013&estado=2'>aqu&iacute;</a>."
+      @mensaje_error = "Existen #{resultados['facturas_incorrectas']} facturas que se han generado con algún tipo de error. "
+        # TODO en una proxima iteracion implementar lo de abajo
+        # + "Para ver dichas facturas pulse <a href='index?periodo=MARZO-ABRIL&anho=2013&estado=2'>aqu&iacute;</a>."
     end
 
     render 'show_generar'
