@@ -1,0 +1,25 @@
+<%= form_for(@calle) do |f| %>
+  <% if @calle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@calle.errors.count, "error") %> prohibited this calle from being saved:</h2>
+
+      <ul>
+      <% @calle.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre, :required => true  %>
+  </div>
+  <div class="field">
+    <%= f.label :zona %><br>
+    <%= f.text_field :zona %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Aceptar" %>
+  </div>
+<% end %>

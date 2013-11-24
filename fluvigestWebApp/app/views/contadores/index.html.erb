@@ -1,0 +1,38 @@
+<h1>Lista de Contadores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nº Serie</th>
+      <th>Calibre</th>
+      <th>Fecha Instalación</th>
+      <th>Fecha Retirada</th>
+      <th>Fecha Revisión</th>
+      <th>Estado</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contadores.each do |contadore| %>
+      <tr>
+        <td><%= contadore.num_serie %></td>
+        <td><%= contadore.calibre %></td>
+        <td><%= contadore.dt_instalacion.strftime("%m/%d/%Y") %></td>
+        <td><%= contadore.dt_retirada.strftime("%m/%d/%Y") %></td>
+        <td><%= contadore.dt_revision.strftime("%m/%d/%Y") %></td>
+        <td><%= contadore.estado %></td>
+        <td><%= link_to 'Ver Contador', contadore %></td>
+        <td><%= link_to 'Editar', edit_contadore_path(contadore) %></td>
+        <td><%= link_to 'Borrar', contadore, method: :delete, data: { confirm: '¿Estas seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Contador', new_contadore_path %>
+<%= link_to 'Inicio', root_path %>

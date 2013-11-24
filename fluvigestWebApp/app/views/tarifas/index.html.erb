@@ -1,0 +1,33 @@
+<h1>Lista de facturas por servicio</h1>
+<div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>TipoServicio</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tiposTarifa.each do |tarifa| %>
+      <tr>
+        <td><%= tarifa.nombre %>/td>
+        <td><%= tarifa.descripcion %>/td>
+        <td> Falta Enlazar</td>
+        <td><%= link_to 'Show', tarifa %></td>
+        <td><%= link_to 'Edit', edit_tarifa_path(tarifa) %></td>
+        <td><%= link_to 'Destroy', tarifa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+
+
+<%= link_to 'New Tarifa', new_tarifa_path %>

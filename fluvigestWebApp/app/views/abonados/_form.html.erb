@@ -1,0 +1,41 @@
+<%= form_for @abonado do |f| %>
+  <% if @abonado.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@abonado.errors.count, "error") %> prohibited
+      this abonado from being saved:</h2>
+    <ul>
+    <% @abonado.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </p>
+ 
+  <p>
+    <%= f.label :apellidos %><br>
+    <%= f.text_field :apellidos %>
+  </p>
+ 
+ <p>
+    <%= f.label :telefono %><br>
+    <%= f.text_field :telefono %>
+  </p>
+  
+  <p>
+    <%= f.label(:razon_social,'Razon Social') %><br>
+    <%= f.text_field :razon_social %>
+  </p>
+  
+  <p>
+    <%= f.label(:nif,'NIF') %><br>
+    <%= f.text_field :nif %>
+  </p>
+
+  <p>
+    <%= f.submit "Crear Abonado" %>
+  </p>
+<% end %>

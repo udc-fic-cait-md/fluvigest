@@ -1,0 +1,25 @@
+<%= form_for(@modelos_contadore) do |f| %>
+  <% if @modelos_contadore.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@modelos_contadore.errors.count, "error") %> impiden guardar los cambios:</h2>
+
+      <ul>
+      <% @modelos_contadore.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :marca, :required => true %><br>
+    <%= f.text_field :marca %>
+  </div>
+  <div class="field">
+    <%= f.label :modelo %><br>
+    <%= f.text_field :modelo, :required => true %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Aceptar"%>
+  </div>
+<% end %>

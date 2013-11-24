@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @barrio.nombre %>
+</p>
+
+<%= link_to 'Editar', edit_barrio_path(@barrio) %> |
+<%= link_to 'Borrar', @barrio, method: :delete, data: { confirm: '¿Estás Seguro?' } %> |
+<%= link_to 'Ver todos los Barrios', barrios_path %> |
+<%= link_to 'Inicio', root_path %>

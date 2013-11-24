@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  numero: MyString
+  piso: MyString
+  portal: MyString
+  puerta: MyString
+  nombre: MyString
+  orden: 1
+  cod_postal: MyString
+  escalera: MyString
+  inmueblescol: MyString
+
+two:
+  numero: MyString
+  piso: MyString
+  portal: MyString
+  puerta: MyString
+  nombre: MyString
+  orden: 1
+  cod_postal: MyString
+  escalera: MyString
+  inmueblescol: MyString

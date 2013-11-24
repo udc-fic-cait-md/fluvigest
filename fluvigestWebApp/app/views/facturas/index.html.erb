@@ -1,0 +1,39 @@
+<h1 style="text-align: center">LISTA DE FACTURAS</h1>
+<div class="CSSTableGenerator">
+<table>
+
+    <tr>
+      <td>Descripcion</td>
+      <td>Fecha</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+
+    </tr>
+
+
+
+    <% @facturas.each do |factura| %>
+      <tr>
+        <td><%= factura.descripcion %></td>
+        <td><%= factura.fecha_emision %></td>
+        <td><%= link_to 'Mostrar', facturas_show_factura_path(:factura_id => factura.id) %></td>
+        <td><%= link_to 'Ver lineas', factura %></td>
+        <td><%= link_to 'Editar', edit_factura_path(factura) %></td>
+        <td><%= link_to 'Borrar', factura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+
+</table>
+  <div style="background: #b2b2b2; text-align: center"><%= will_paginate @facturas %></div>
+</div>
+
+<br>
+
+<%= link_to 'Crear factura', new_factura_path, {:class => "botonLink"} %>
+
+<a class="botonLink" href="/facturas/buscar-remesa">Buscar remesas</a>
+<a class="botonLink" href="/facturas/buscar_factura">Buscar facturas</a>
+

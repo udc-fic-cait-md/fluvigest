@@ -1,0 +1,48 @@
+<h1>Listado de Inmuebles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Número</th>
+      <th>Piso</th>
+      <th>Portal</th>
+      <th>Puerta</th>
+      <th>Nombre</th>
+      <th>Orden</th>
+      <th>Código Postal</th>
+      <th>Escalera</th>
+      <th>Inmueblescol</th>
+			<th>Calle</th>
+			<th>Barrio</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inmuebles.each do |inmueble| %>
+      <tr>
+        <td><%= inmueble.numero %></td>
+        <td><%= inmueble.piso %></td>
+        <td><%= inmueble.portal %></td>
+        <td><%= inmueble.puerta %></td>
+        <td><%= inmueble.nombre %></td>
+        <td><%= inmueble.orden %></td>
+        <td><%= inmueble.cod_postal %></td>
+        <td><%= inmueble.escalera %></td>
+        <td><%= inmueble.inmueblescol %></td>
+				<td><%= inmueble.calle.nombre %></td>
+				<td><%= inmueble.calle.barrio.nombre %></td>
+        <td><%= link_to 'Ver Inmueble', inmueble %></td>
+        <td><%= link_to 'Editar', edit_inmueble_path(inmueble) %></td>
+        <td><%= link_to 'Borrar', inmueble, method: :delete, data: { confirm: '¿Estás Seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Inmueble', new_inmueble_path %>
+<%= link_to 'Inicio', root_path %>

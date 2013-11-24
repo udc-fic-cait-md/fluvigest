@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @modelos_contadore.marca %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @modelos_contadore.modelo %>
+</p>
+
+<%= link_to 'Editar', edit_modelos_contadore_path(@modelos_contadore) %> |
+<%= link_to 'Borrar', @modelos_contadore, method: :delete, data: { confirm: '¿Estas seguro?' } %> |
+<%= link_to 'Todos los Modelos', modelos_contadores_path %> |
+<%= link_to 'Inicio', root_path %>

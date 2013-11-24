@@ -1,0 +1,171 @@
+====================================================
+Instalación de Ruby en sistemas OS/X 10.9 Mavericks.
+====================================================
+
+#######################################
+## Desde una cuenta de Administrador ##
+#######################################
+
+# Instalar XCode desde el Apple Store.
+# Instalar las Command Line Tools:
+xcode-select --install
+# Instalar MacPorts o similar (HomeBrew, Fink, ...).
+# http://www.macports.org
+# Suponiendo que MacPorts se instaló en /opt/local:
+sudo echo 'export PATH="/opt/local/bin:/opt/local/sbin:$PATH"' >> /etc/profile
+sudo echo 'export MANPATH="/opt/local/share/man:$MANPATH"' >> /etc/profile
+# Reiniciar Terminal.app
+# Instalar las dependencias (si es necesario). En el caso de MacPorts:
+sudo port -v selfupdate
+sudo port -v upgrade outdated
+sudo port -v install zlib openssl readline libyaml libxml2 libxslt 
+sudo port -v install nodejs-devel +dtrace +ssl
+
+###############################
+## Desde una cuenta estándar ##
+###############################
+
+# Ir a directorio home.
+cd
+# Configurar Git: http://git-scm.com/book/en/Customizing-Git-Git-Configuration
+# Descargar rbenv al directorio .rbenv.
+git clone git://github.com/sstephenson/rbenv.git .rbenv
+# Descargar ruby-build al directorio .rbenv/plugins/ruby-build
+git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+# Introducir ejecutables rbenv & ruby-build en el path.
+echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+# Configurar el entorno para rbenv.
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+# Aplicar nueva configuración.
+source ~/.bashrc
+# Mac OS no lee .bashrc por defecto, para corregirlo:
+echo '[[ -s ~/.bashrc ]] && source ~/.bashrc' >> ~/.bash_profile
+# [Opcional]: No instalar la documentación en local
+echo "gem: --no-ri --no-rdoc" > ~/.gemrc
+# Ver las versiones de Ruby disponibles para instalar.
+ruby-build --definitions
+# Elegir una e instalarla.
+rbenv install 2.0.0-p247
+rbenv rehash
+# Establecer la versión global de Ruby.
+rbenv global 2.0.0-p247
+# Comprobar la versión de Ruby instalada.
+ruby -v
+
+====================
+Instalación de Rails
+====================
+
+gem install rails
+rbenv rehash
+rails -v
+
+================
+Árbol resultante
+================
+
+# La versión de tree incluida en mi OS/X da un precioso
+# y realmente descriptivo: Segmentation fault: 11. Así que:
+sudo port -v install tree
+# Ver el resultado de la instalación:
+tree -L 3 .rbenv/
+
+.rbenv/
+├── LICENSE
+├── README.md
+├── bin
+│   ├── rbenv -> ../libexec/rbenv
+│   └── ruby-local-exec
+├── completions
+│   ├── rbenv.bash
+│   ├── rbenv.fish
+│   └── rbenv.zsh
+├── libexec
+│   ├── rbenv
+│   ├── rbenv---version
+│   ├── rbenv-commands
+│   ├── rbenv-completions
+│   ├── rbenv-exec
+│   ├── rbenv-global
+│   ├── rbenv-help
+│   ├── rbenv-hooks
+│   ├── rbenv-init
+│   ├── rbenv-local
+│   ├── rbenv-prefix
+│   ├── rbenv-rehash
+│   ├── rbenv-root
+│   ├── rbenv-sh-rehash
+│   ├── rbenv-sh-shell
+│   ├── rbenv-shims
+│   ├── rbenv-version
+│   ├── rbenv-version-file
+│   ├── rbenv-version-file-read
+│   ├── rbenv-version-file-write
+│   ├── rbenv-version-name
+│   ├── rbenv-version-origin
+│   ├── rbenv-versions
+│   ├── rbenv-whence
+│   └── rbenv-which
+├── plugins
+│   └── ruby-build
+│       ├── CHANGELOG.md
+│       ├── LICENSE
+│       ├── README.md
+│       ├── bin
+│       ├── install.sh
+│       ├── script
+│       ├── share
+│       └── test
+├── shims
+│   ├── bundle
+│   ├── erb
+│   ├── erubis
+│   ├── gem
+│   ├── irb
+│   ├── rackup
+│   ├── rails
+│   ├── rake
+│   ├── rdoc
+│   ├── ri
+│   ├── ruby
+│   ├── sprockets
+│   ├── testrb
+│   ├── thor
+│   ├── tilt
+│   └── tt
+├── test
+│   ├── --version.bats
+│   ├── commands.bats
+│   ├── completions.bats
+│   ├── exec.bats
+│   ├── global.bats
+│   ├── help.bats
+│   ├── hooks.bats
+│   ├── init.bats
+│   ├── libexec
+│   │   └── rbenv-echo
+│   ├── local.bats
+│   ├── prefix.bats
+│   ├── rbenv.bats
+│   ├── rehash.bats
+│   ├── shell.bats
+│   ├── shims.bats
+│   ├── test_helper.bash
+│   ├── version-file-read.bats
+│   ├── version-file-write.bats
+│   ├── version-file.bats
+│   ├── version-name.bats
+│   ├── version-origin.bats
+│   ├── version.bats
+│   ├── versions.bats
+│   ├── whence.bats
+│   └── which.bats
+├── version
+└── versions
+    └── 2.0.0-p247
+        ├── bin
+        ├── include
+        ├── lib
+        └── share
+
+18 directories, 78 files

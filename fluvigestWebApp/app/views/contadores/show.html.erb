@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nº Serie:</strong>
+  <%= @contadore.num_serie %>
+</p>
+
+<p>
+  <strong>Calibre:</strong>
+  <%= @contadore.calibre %>
+</p>
+
+<p>
+  <strong>Fecha Rnstalación:</strong>
+  <%= @contadore.dt_instalacion.strftime("%m/%d/%Y") %>
+</p>
+
+<p>
+  <strong>Fecha Retirada:</strong>
+  <%= @contadore.dt_retirada.strftime("%m/%d/%Y") %>
+</p>
+
+<p>
+  <strong>Fecha Revisión:</strong>
+  <%= @contadore.dt_revision.strftime("%m/%d/%Y") %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @contadore.estado %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @modelo == nil ? "" : @modelo.marca %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @modelo == nil ? "" : @modelo.modelo%>
+</p>
+
+<%= link_to 'Editar', edit_contadore_path(@contadore) %> |
+<%= link_to 'Borrar', @contadore, method: :delete, data: { confirm: '¿Estas seguro?' } %> |
+<%= link_to 'Todos los Contadores', contadores_path %> |
+<%= link_to 'Inicio', root_path %>

@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @calle.nombre %>
+</p>
+
+<p>
+  <strong>Zona:</strong>
+  <%= @calle.zona %>
+</p>
+
+<p>
+  <strong>Barrio:</strong>
+  <%= @calle.barrio.nombre %>
+</p>
+
+<%= link_to 'Editar', edit_calle_path(@calle) %> |
+<%= link_to 'Borrar', @calle, method: :delete, data: { confirm: 'Estás Seguro?' } %>|
+<%= link_to 'Todas las Calles', calles_path %> |
+<%= link_to 'Inicio', root_path %>

@@ -1,0 +1,37 @@
+   <h1>Lista de lecturas realizadas</h1>
+   <%= link_to 'Crear nueva entrada', new_lectura_path %> 
+   <p>Filtrar resultados</p>
+   <table>
+      <thead>
+         <th>Id</th>
+         <th>Lectura</th>
+         <th>Fecha</th>
+         <th>Lectura anterior</th>
+         <th>Id. usuario</th>
+         <th>Id. contador</th>
+         <th>Tipo incidencia</th>
+         <th>Incidencia</th>
+         <th></th>
+         <th></th>
+      </thead>
+      <tbody>
+         <% @lecturas.each do |lectura| %>
+         <tr>
+            <td class="id"><%= link_to lectura.id, lectura %></td>
+            <td class="lectura"><%= lectura.lectura %></td>
+            <td class="fecha"><%= lectura.fecha %></td>
+            <td class="lectura_anterior"><%= lectura.lectura_anterior %></td>
+            <td class="usuarios_id"><%= lectura.usuarios_id %></td>
+            <td class="contadores_id"><%= lectura.contadores_id %></td>
+            <td class="tincidencias_id"><%= lectura.tincidencias_id %></td>
+            <td class="incidencia"><%= lectura.incidencia %></td>
+            <!-- <td><%= link_to 'Editar', edit_lectura_path(lectura) %></td> -->
+            <td>Editar</td>
+            <td><%= link_to 'Borrar', lectura_path(lectura),
+                    method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+         </tr>
+         <% end %>
+      </tbody>
+   </table>
+   
+   <%= link_to 'Atrás', root_path %>

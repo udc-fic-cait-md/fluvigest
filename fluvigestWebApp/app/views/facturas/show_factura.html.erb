@@ -1,0 +1,79 @@
+<div style="width:730px; height:600px; border:1px #000099 solid; align:center;margin:0 auto;">
+
+  <table width="700" align="center">
+    <tr height="100">
+      <td colspan="3"><h1>Fluvigest S.A.</h1></td>
+      <td>
+        <%= image_tag("logo-transparente2.png", :style => "padding-left:100px" ) %>
+        <!--<img src="../../assets/images/agua.JPG" width="100" height="92" style="padding-left:100px;" align="middle" /> -->
+      </td>
+    </tr>
+    <tr>
+      <td width="100">Nº Factura:</td>
+      <td width="200"><%= @factura.id %></td>
+      <td width="100">Fecha emisión:</td>
+      <td width="200"><%= @factura.fecha_emision %></td>
+    </tr>
+    <tr>
+      <td colspan="4"><h3>FACTURA</h3></td>
+    </tr>
+    <tr>
+      <td>Cliente:</td>
+      <td><%= @factura.nombre_cliente %></td>
+      <td colspan="2">Domiciliación bancaria:</td>
+    </tr>
+    <tr>
+      <td>Dirección suministro:</td>
+      <td><%= @factura.direccion %></td>
+      <td>Banco:</td>
+      <td><%= @factura.banco %></td>
+    </tr>
+    <tr>
+      <td>NIF:</td>
+      <td><%= @factura.dni %></td>
+      <td>Datos bancarios:</td>
+      <td><%= @factura.numero_cuenta %></td>
+    </tr>
+    <tr height="50">
+      <td colspan="4">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <table width="700">
+          <tr bgcolor="#cccccc">
+            <td>Servicio</td>
+            <td>Período</td>
+            <td>Tarifa</td>
+            <td>Lectura</td>
+            <td>Importe</td>
+          </tr>
+          <% @linea_facturas.each do |linea_factura| %>
+              <tr>
+                <td><%= linea_factura.descripcion %></td>
+                <td><%= @factura.periodo %></td>
+                <td>0.10e</td>
+                <td><%= linea_factura.lectura %></td>
+                <td><%= linea_factura.importe %>e</td>
+              </tr>
+          <% end %>
+          <tr>
+            <td colspan="5">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="4">
+               <b>Importe total</b>
+            </td>
+            <td>
+              <b><%= format("%.2f",@total) %>e</b>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+  </table>
+
+</div>
+<div style="width:730px; align:center;margin:0 auto; padding-left: 500px;">
+    <%= link_to 'Volver', facturas_path, {:class => "botonLink"} %>
+</div>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  factura_id: 
+  numero: 1
+  descripcion: MyText
+
+two:
+  factura_id: 
+  numero: 1
+  descripcion: MyText
