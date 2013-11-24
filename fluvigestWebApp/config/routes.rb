@@ -1,5 +1,7 @@
 FluvigestWebApp::Application.routes.draw do
 
+  resources :tipo_tarifas
+
   get '/facturas/listar-remesa' => 'facturas#listarRemesa'
   get '/facturas/buscar-remesa' => 'facturas#buscarRemesa'
   get '/facturas/buscar_factura' => 'facturas#buscarFactura'

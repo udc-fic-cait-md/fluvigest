@@ -4,23 +4,27 @@ class TarifasController < ApplicationController
   # GET /tarifas
   # GET /tarifas.json
   def index
-    @tiposTarifa = TipoTarifas.all
+    @tarifas = Tarifa.all
   end
 
   # GET /tarifas/1
   # GET /tarifas/1.json
   def show
-    @tipoTarifa = TipoTarifas.find(params[:id])
-    @tarifas = Tarifas.where(:tipo_tarifas => @tipoTarifa.id)
+    @tarifa=Tarifa.find(params[:id])
+   # TipoTarifa.find(params[:id])
+    @tipoTarifa=TipoTarifa.where(["id=?",@tarifa.tipo_tarifa_id]).first_or_create!
   end
 
   # GET /tarifas/new
   def new
-    @tipoTarifa = TipoTarifas.new
+    @tarifa = Tarifa.new
+    @tipos=TipoTarifa.all
   end
 
   # GET /tarifas/1/edit
   def edit
+    @tarifa=Tarifa.find(params[:id])
+    @tipos=TipoTarifa.all
   end
 
   # POST /tarifas
@@ -30,7 +34,7 @@ class TarifasController < ApplicationController
 
     respond_to do |format|
       if @tarifa.save
-        format.html { redirect_to @tarifa, notice: 'Tarifa was successfully created.' }
+        format.html { redirect_to @tarifa, notice: 'La tarifa ha sido creada satisfactoriamente.' }
         format.json { render action: 'show', status: :created, location: @tarifa }
       else
         format.html { render action: 'new' }
@@ -44,7 +48,7 @@ class TarifasController < ApplicationController
   def update
     respond_to do |format|
       if @tarifa.update(tarifa_params)
-        format.html { redirect_to @tarifa, notice: 'Tarifa was successfully updated.' }
+        format.html { redirect_to @tarifa, notice: 'La tarifa ha sido actualizada satisfactoriamente.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -71,6 +75,6 @@ class TarifasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tarifa_params
-      params[:tarifa]
+      params.require(:tarifa).permit(:precio,:fecha_inicio,:fecha_fin,:tipo_tarifa_id)
     end
 end

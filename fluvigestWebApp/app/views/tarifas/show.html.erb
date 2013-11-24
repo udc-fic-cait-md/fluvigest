@@ -1,4 +1,27 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Precio:</strong>
+  <%= @tarifa.precio %>
+</p>
+
+<p>
+  <strong>Desde:</strong>
+  <%= @tarifa.fecha_inicio %>
+</p>
+
+<p>
+  <strong>Hasta:</strong>
+  <%= @tarifa.fecha_fin %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @tipoTarifa.nombre %>
+</p>
+
+
+
+
 <%= link_to 'Edit', edit_tarifa_path(@tarifa) %> |
 <%= link_to 'Back', tarifas_path %>
