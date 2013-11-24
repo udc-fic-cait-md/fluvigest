@@ -103,7 +103,7 @@ module FacturasHelper
     domiciliacion = obtener_domiciliacion(contrato)
     inmueble = obtener_inmueble(contrato)
 
-    #todo controlar que servicios_contratados sea null
+
     servicios_contratados = obtener_servicios_contratados(contrato)
     if(!servicios_contratados.nil?)
       servicios_contratados.each{|servicio_contratado|
@@ -126,7 +126,7 @@ module FacturasHelper
           incidencia = lectura.incidencia
           if incidencia.nil?
             # no hay incidencia
-            # todo falta relacionar tipo de tarifa con servicio_contratado
+
             tarifa = obtener_tarifa_actual_por_tipo_tarifa(servicio_contratado.tipo_tarifa)
             if !tarifa.nil?
               # hay tarifa para el servicio
@@ -192,26 +192,58 @@ module FacturasHelper
     }
     end
 
-    estado_factura = errores ? EstadosFactura::GEN_CON_ERROR : EstadosFactura::PTE_EMITIR
+
+    # Comprobaciones
     esta_domiciliada = !domiciliacion.nil?
     periodo_db = convertir_a_periodo_db(periodo, anho)
 
+    descripcion_factura = contrato.abonado.nil? ? '' : contrato.abonado.nombre + ' ' + contrato.abonado.apellidos + ' ' + periodo_db
+    nombre_cliente_factura = ''
+    nif_cliente_factura = ''
+
+    if(contrato.abonado.nil?)
+      trazas << 'ERROR: Datos del abonado de la factura no encontrados'
+      errores = true
+    else
+      nombre_cliente_factura = contrato.abonado.nombre + ' ' + contrato.abonado.apellidos
+      nif_cliente_factura = contrato.abonado.nif
+    end
+
+    direccion_factura = ''
+    codigo_postal_factura = ''
+
+    if(inmueble.nil?)
+      trazas << 'ERROR: Dirección de la factura no encontrado'
+      errores = true
+    else
+      direccion_factura = inmueble.nombre
+      codigo_postal_factura = inmueble.cod_postal
+    end
+
+    numero_cuenta_factura = ''
+
+    if(esta_domiciliada)
+      numero_cuenta_factura = domiciliacion.ccc
+    end
+
+
+    estado_factura = errores ? EstadosFactura::GEN_CON_ERROR : EstadosFactura::PTE_EMITIR
 
     if(!lineas.nil? && lineas.size > 0)
       factura = Factura.new(
-          descripcion: contrato.abonado.nombre + ' ' + contrato.abonado.apellidos + ' ' + periodo_db,
+          descripcion: descripcion_factura,
           periodo: periodo_db,
           estado: estado_factura,
           detalle_facturacion: trazas.to_s,
-          nombre_cliente: contrato.abonado.nombre + ' ' + contrato.abonado.apellidos,
-          direccion: inmueble.nombre,
-          codigo_postal: inmueble.cod_postal,
-          provincia: '',     # no se de donde sacarlo
-          banco: '',      # no se de donde sacarlo
-          poblacion: '',  # no se de donde sacarlo
-          numero_cuenta: domiciliacion.ccc,
+          nombre_cliente: nombre_cliente_factura,
+          direccion: direccion_factura,
+          codigo_postal: codigo_postal_factura,
+          provincia: '',     # TODO no se de donde sacarlo
+          banco: '',      #TODO no se de donde sacarlo
+          poblacion: '',  #TODO no se de donde sacarlo
+          numero_cuenta: numero_cuenta_factura,
           domiciliada: esta_domiciliada,
-          dni: contrato.abonado.nif,
+          dni: nif_cliente_factura,
           contrato: contrato,
           linea_facturas: lineas
       )
@@ -225,7 +257,6 @@ module FacturasHelper
 
   def obtener_lectura_actual(inmueble)
 
-    #TODO falta relacionar los contratos con inmuebles
     contador = obtener_contador_por_inmueble(inmueble)
 
     lectura = obtener_ultima_lectura_por_contador(contador)
@@ -271,7 +302,7 @@ module FacturasHelper
 
   def obtener_contador_por_inmueble(inmueble)
 
-    contador = ContadorMock.new(1, inmueble)
+    contador = Contadore.find_by_inmueble_id(inmueble.id)
 
   end
 
@@ -316,24 +347,6 @@ module FacturasHelper
     anhos
 
   end
-
-
-
-  ########################################################
-  # MOCKS
-  ########################################################
-
-  class ContadorMock
-    attr_accessor :id
-    attr_accessor :inmueble
-
-    # Crear el objeto
-    def initialize(id, inmueble)
-      @id = id
-      @inmueble = inmueble
-    end
-  end
-
 
 
   def obtener_contratos_vigentes(fecha_inicio, fecha_fin)

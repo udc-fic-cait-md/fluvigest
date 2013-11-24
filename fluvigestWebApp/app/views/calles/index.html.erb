@@ -16,9 +16,9 @@
       <tr>
         <td><%= calle.nombre %></td>
         <td><%= calle.zona %></td>
-        <td><%= link_to 'Show', calle %></td>
-        <td><%= link_to 'Edit', edit_calle_path(calle) %></td>
-        <td><%= link_to 'Destroy', calle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver Calle', calle %></td>
+        <td><%= link_to 'Editar', edit_calle_path(calle) %></td>
+        <td><%= link_to 'Borrar', calle, method: :delete, data: { confirm: 'Estás Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,5 @@
 
 <br>
 
-<%= link_to 'New Calle', new_calle_path %>
+<%= link_to 'Nueva Calle', new_calle_path %> |
+<%= link_to 'Inicio', root_path %>

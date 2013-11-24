@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Numero:</strong>
+  <strong>Número:</strong>
   <%= @inmueble.numero %>
 </p>
 
@@ -31,7 +31,7 @@
 </p>
 
 <p>
-  <strong>Cod postal:</strong>
+  <strong>Código Postal:</strong>
   <%= @inmueble.cod_postal %>
 </p>
 
@@ -45,5 +45,20 @@
   <%= @inmueble.inmueblescol %>
 </p>
 
-<%= link_to 'Edit', edit_inmueble_path(@inmueble) %> |
+<p>
+  <strong>Calle:</strong>
+  <%= @inmueble.calle.nombre %>
+</p>
+
+<p>
+  <strong>Barrio:</strong>
+  <%= @inmueble.calle.barrio.nombre %>
+</p>
+
+<%= link_to 'Editar', edit_inmueble_path(@inmueble) %> |
 <%= link_to 'Back', inmuebles_path %>
+
+<%= link_to 'Editar', edit_modelos_contadore_path(@modelos_contadore) %> |
+<%= link_to 'Borrar', @modelos_contadore, method: :delete, data: { confirm: '¿Estas seguro?' } %> |
+<%= link_to 'Todos los Modelos', modelos_contadores_path %> |
+<%= link_to 'Inicio', root_path %>

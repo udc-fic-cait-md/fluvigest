@@ -352,6 +352,34 @@ VALUES
 '2013-11-20 10:27:00',
 '2013-11-20 10:27:00'
 );
+INSERT INTO `fluvigestWebApp_development`.`inmuebles`
+(`id`,
+`numero`,
+`piso`,
+`portal`,
+`puerta`,
+`nombre`,
+`orden`,
+`cod_postal`,
+`escalera`,
+`inmueblescol`,
+`created_at`,
+`updated_at`)
+VALUES
+(
+2,
+'13',
+'16',
+'3',
+'der',
+'Carlos Torpedo Carril',
+1,
+'15007',
+'13',
+'2',
+'2013-11-20 10:27:00',
+'2013-11-20 10:27:00'
+);
 
 INSERT INTO `fluvigestWebApp_development`.`calles`
 (`id`,
@@ -391,7 +419,9 @@ INSERT INTO `fluvigestWebApp_development`.`contadores`
 `dt_revision`,
 `estado`,
 `created_at`,
-`updated_at`)
+`updated_at`,
+`inmueble_id`,
+`modelos_contadore_id`)
 VALUES
 (
 1,
@@ -402,7 +432,35 @@ VALUES
 '2011-11-20',
 1,
 '2013-11-20 10:27:00',
-'2013-11-20 10:27:00'
+'2013-11-20 10:27:00',
+1,
+1
+);
+INSERT INTO `fluvigestWebApp_development`.`contadores`
+(`id`,
+`num_serie`,
+`calibre`,
+`dt_instalacion`,
+`dt_retirada`,
+`dt_revision`,
+`estado`,
+`created_at`,
+`updated_at`,
+`inmueble_id`,
+`modelos_contadore_id`)
+VALUES
+(
+2,
+'FFFFFFFFFF',
+'15',
+'2011-11-20',
+'2011-11-20',
+'2011-11-20',
+1,
+'2013-11-20 10:27:00',
+'2013-11-20 10:27:00',
+2,
+1
 );
 
 INSERT INTO `fluvigestWebApp_development`.`modelos_contadores`

@@ -1,7 +1,7 @@
 <%= form_for(@inmueble) do |f| %>
   <% if @inmueble.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@inmueble.errors.count, "error") %> prohibited this inmueble from being saved:</h2>
+      <h2><%= pluralize(@inmueble.errors.count, "error") %> impiden guardar los cambios:</h2>
 
       <ul>
       <% @inmueble.errors.full_messages.each do |msg| %>
@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :numero %><br>
-    <%= f.text_field :numero %>
+    <%= f.text_field :numero, :required => true %>
   </div>
   <div class="field">
     <%= f.label :piso %><br>
@@ -33,11 +33,11 @@
   </div>
   <div class="field">
     <%= f.label :orden %><br>
-    <%= f.number_field :orden %>
+    <%= f.number_field :orden, :value => Inmueble.siguiente_orden, :min => 1, :required => true  %>
   </div>
   <div class="field">
     <%= f.label :cod_postal %><br>
-    <%= f.text_field :cod_postal %>
+    <%= f.text_field :cod_postal, :required => true  %>
   </div>
   <div class="field">
     <%= f.label :escalera %><br>
@@ -48,6 +48,6 @@
     <%= f.text_field :inmueblescol %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Aceptar" %>
   </div>
 <% end %>
