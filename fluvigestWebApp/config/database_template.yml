@@ -23,7 +23,9 @@ development:
   password: toor
 
   socket: /var/run/mysqld/mysqld.sock
-
+  #host: 127.0.0.1
+  #port: 3306
+  
 # Warning: The database defined as "test" will be erased and
 
 # re-generated from your development database when you run "rake".
@@ -40,6 +42,8 @@ test:
   password: toor
 
   socket: /var/run/mysqld/mysqld.sock
+  #host: 127.0.0.1
+  #port: 3306
 
 production:
 
@@ -52,3 +56,5 @@ production:
   username: root
   password: toor
   socket: /var/run/mysqld/mysqld.sock
+  #host: 127.0.0.1
+  #port: 3306
