@@ -51,19 +51,19 @@
       <div id="header"> 
          <ul class="nav">
    	    <li> <%= image_tag("logo.jpg", :size =>  "50x30", :alt => "Fluvigest" ) %></li>
-            <li><a href = ""> Inicio </a></li>
+            <li><%= link_to 'Inicio', controller: "main" %>  </a></li>
               
-            <li><a href = ""> Inmuebles </a>
+            <li><%= link_to 'Inmuebles', controller: "inmuebles" %></a>
                 <ul>
-                  <li><a href = ""> Contadores </a></li>
+                  <li><%= link_to 'Contadores', controller: "contadores" %> </a></li>
                   <li><a href = ""> Contratos </a></li>
                </ul>            
             </li>
-            <li><a href = ""> Lecturas </a></li>
-            <li><a href = ""> Facturas </a></li>
+            <li><%= link_to 'Lecturas', controller: "lecturas" %></li>
+            <li><%= link_to 'Facturas', controller: "facturas" %> </a></li>
             <li><a href = ""> Administracion </a>
                 <ul>
-                   <li><a href= ""> Tarifas </a></li>
+                   <li><%= link_to 'Tarifas', controller: "tipo_tarifas" %></li>
                 </ul>                
             </li>
          </ul>
