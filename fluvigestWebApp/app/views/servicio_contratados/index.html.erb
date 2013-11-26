@@ -1,2 +1,18 @@
-<h1>ServicioContratados#index</h1>
-<p>Find me in app/views/servicio_contratados/index.html.erb</p>
+<h1>Listado de servicios contratados</h1>
+<%= link_to 'Nuevo servicio contratados', new_servicio_path %> 
+<table>
+  <tr>
+    <th>ServicioId</th>
+  </tr>
+ 
+  <% @ss.each do |s| %>
+    <tr>
+      <td><%= s.id %></td>
+      <td><%= link_to 'Ver', s %></td>
+      <td><%= link_to 'Editar', edit_servicio_path(s) %></td>
+      <td><%= link_to 'Borrar', servicio_path(s),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'Volver al inicio', root_path %>

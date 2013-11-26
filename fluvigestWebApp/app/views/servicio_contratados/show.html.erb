@@ -1,2 +1,50 @@
-<h1>ServicioContratados#show</h1>
-<p>Find me in app/views/servicio_contratados/show.html.erb</p>
+<p>
+  <strong>Id</strong>
+  <%= @s.id %>
+</p>
+ 
+<p>
+  <strong>ContratoId:</strong>
+  <%= @s.contrato_id %>
+</p>
+
+<p>
+  <strong>TipoServicioId:</strong>
+  <%= @s.tipo_servicio_id %>
+</p>
+
+<p>
+  <strong>Fecha inicio:</strong>
+  <%= @s.fecha_inicio %>
+</p>
+
+<p>
+  <strong>Fecha fin:</strong>
+  <%= @s.fecha_fin %>
+</p>
+
+<p>
+  <strong>TipoTarifaId:</strong>
+  <%= @s.tipo_tarifa_id %>
+</p>
+
+
+<h2>Contrato</h2>
+<% @s.contrato.each do |contrato| %>
+
+  <p>
+    <strong>Fecha Inicio:</strong>
+    <%= contrato.fecha_inicio %>
+  </p>
+ 
+  <p>
+    <strong>Fecha Fin:</strong>
+    <%= contrato.fecha_fin %>
+  </p>
+  
+  <hr width="50%" align="left" noshade>
+
+<% end %>
+
+<%= link_to 'Volver a Servicios Contratados', servicios_path %>
+| <%= link_to 'Editar', edit_servicio_path(@edit) %>
