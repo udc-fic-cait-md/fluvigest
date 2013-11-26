@@ -40,6 +40,8 @@ class FacturasController < ApplicationController
   # POST /facturas.json
   def create
     @factura = Factura.new(factura_params)
+    @factura.domiciliada = params[:domiciliada]
+
 
     respond_to do |format|
       if @factura.save
@@ -55,6 +57,7 @@ class FacturasController < ApplicationController
   # PATCH/PUT /facturas/1
   # PATCH/PUT /facturas/1.json
   def update
+    @factura.domiciliada = params[:domiciliada]
     respond_to do |format|
       if @factura.update(factura_params)
         format.html { redirect_to facturas_path}
@@ -187,7 +190,7 @@ class FacturasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def factura_params
-      params.require(:factura).permit(:descripcion, :fecha_emision)
+      params.require(:factura).permit(:fecha_inicio, :fecha_final, :descripcion, :fecha_emision, :descripcion  ,:periodo, :fecha_emision ,:estado ,:detalle_facturacion, :nombre_cliente, :direccion ,:codigo_postal,:poblacion,:provincia,:banco,:numero_cuenta,:dni,:domiciliada,:idRemesa)
     end
 
 

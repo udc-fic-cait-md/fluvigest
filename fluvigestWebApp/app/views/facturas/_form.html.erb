@@ -1,25 +1,77 @@
 <%= form_for(@factura) do |f| %>
-  <% if @factura.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@factura.errors.count, "error") %> prohibited this factura from being saved:</h2>
+    <% if @factura.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@factura.errors.count, "error") %> prohibited this factura from being saved:</h2>
 
-      <ul>
-      <% @factura.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @factura.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :descripcion %><br>
+      <%= f.text_area :descripcion %>
     </div>
-  <% end %>
+    <div class="field">
+      <%= f.label :periodo %><br>
+      <%= f.text_field :periodo %>
+    </div>
+    <div class="field">
+        <%= f.label :fecha_emision %><br>
+        <%= f.date_select :fecha_emision, :order => [:day, :year, :month], :use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'] %>
+    </div>
+    <%= f.select :estado,  [['Pendiente de emitir',0], ['Generada con errores',1],['Emitida',2]] %>
 
-  <div class="field">
-    <%= f.label :descripcion %><br>
-    <%= f.text_area :descripcion %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha %><br>
-    <%= f.datetime_select :fecha_emision %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :detalle_facturacion %><br>
+      <%= f.text_field :detalle_facturacion %>
+    </div>
+    <div class="field">
+      <%= f.label :nombre_cliente %><br>
+      <%= f.text_field :nombre_cliente %>
+    </div>
+    <div class="field">
+      <%= f.label :direccion %><br>
+      <%= f.text_field :direccion %>
+    </div>
+    <div class="field">
+      <%= f.label :codigo_postal %><br>
+      <%= f.text_field :codigo_postal %>
+    </div>
+    <div class="field">
+      <%= f.label :poblacion %><br>
+      <%= f.text_field :poblacion %>
+    </div>
+    <div class="field">
+      <%= f.label :provincia %><br>
+      <%= f.text_field :provincia %>
+    </div>
+    <div class="field">
+      <%= f.label :banco %><br>
+      <%= f.text_field :banco%>
+    </div>
+    <div class="field">
+      <%= f.label :numero_cuenta %><br>
+      <%= f.text_field :numero_cuenta %>
+    </div>
+    <div class="field">
+      <%= f.label :dni %><br>
+      <%= f.text_field :dni %>
+    </div>
+    <div class="form_row">
+      <label for="domiciliada">Domiciliada:</label>
+      <br><%= radio_button_tag 'domiciliada', true, true %> Sí
+      <br><%= radio_button_tag 'domiciliada', false  %> No
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>
+<script>
+    $("#start-date").datepicker({ dateFormat: "yy-mm-dd" });
+    $("#end-date").datepicker({ dateFormat: "yy-mm-dd" });
+    $("#emision-date").datepicker({ dateFormat: "yy-mm-dd" });
+</script>
