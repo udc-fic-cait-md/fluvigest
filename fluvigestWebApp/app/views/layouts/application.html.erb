@@ -4,6 +4,10 @@
      <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
      <%= csrf_meta_tags %>
 
+     <!-- generación del calendario para las fechas -->
+     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
       <title> FluviGest </title>
       <style type = "text/css">
          #header {
@@ -15,7 +19,7 @@
          ul, ol {
             list-style:none;
          }
-         
+
          .nav li a{
             background-color:#000;
             color:#fff;
@@ -27,55 +31,55 @@
             float:left;
          }
          .nav li a:hover {
-           background-color:#434343; 
+           background-color:#434343;
          }
          .nav li ul {
             display:none;
             position:absolute;
             min-width:140px;
          }
-         
+
          .nav li:hover> ul {
             display:block;
          }
          .nav li ul li{
             position:relative;
-         }  
+         }
          .nav li ul li ul {
             right:-140px;
             top:0px;
-         
+
          }
-	  #foo { background-image: url(data:../../assets/images/water.jpg) 
+	  #foo { background-image: url(data:../../assets/images/water.jpg)
       </style>
    </head>
    <body>        
-      <hr size=40 color="848484"> 
-      
-      <div id="header"> 
+      <hr size=40 color="848484">
+
+      <div id="header">
          <ul class="nav">
    	    <li> <%= image_tag("logo.jpg", :size =>  "50x30", :alt => "Fluvigest" ) %></li>
             <li><%= link_to 'Inicio', controller: "main" %>  </a></li>
-              
+
             <li><%= link_to 'Inmuebles', controller: "inmuebles" %></a>
                 <ul>
                   <li><%= link_to 'Contadores', controller: "contadores" %> </a></li>
                   <li><a href = ""> Contratos </a></li>
-               </ul>            
+               </ul>
             </li>
             <li><%= link_to 'Lecturas', controller: "lecturas" %></li>
             <li><%= link_to 'Facturas', controller: "facturas" %> </a></li>
             <li><a href = ""> Administracion </a>
                 <ul>
                    <li><%= link_to 'Tarifas', controller: "tipo_tarifas" %></li>
-                </ul>                
+                </ul>
             </li>
          </ul>
-      <hr size=40 color ="FFFFFF" > 
+      <hr size=40 color ="FFFFFF" >
 
 	<%= yield %>
       </div>
-      
+
      
    </body>
 </html>

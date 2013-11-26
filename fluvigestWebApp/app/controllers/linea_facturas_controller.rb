@@ -32,7 +32,7 @@ class LineaFacturasController < ApplicationController
   # POST /linea_facturas.json
   def create
     @factura = Factura.find(session[:id_factura])
-    @linea_factura = @factura.linea_facturas.create(params[:linea_factura].permit(:descripcion, :importe, :lectura))
+    @linea_factura = @factura.linea_facturas.create(params[:linea_factura].permit(:numero, :descripcion, :importe, :lectura, :periodo, :cantidad, :tarifa))
     @linea_factura.numero = getLastNum(@linea_factura.factura_id)
     @linea_factura.save
     redirect_to factura_path(@factura)
@@ -68,7 +68,7 @@ class LineaFacturasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def linea_factura_params
-      params.require(:linea_factura).permit(:factura_id, :numero, :descripcion, :importe, :lectura)
+      params.require(:linea_factura).permit(:factura_id, :numero, :descripcion, :importe, :lectura, :periodo, :cantidad, :tarifa)
     end
 
   #Función que me devuelve el ultimo numero de linea usado.

@@ -6,6 +6,9 @@
       <td>Descripcion</td>
       <td>Importe</td>
       <td>Lectura</td>
+      <td>Periodo</td>
+      <td>Cantidad</td>
+      <td>Tarifa</td>
       <td></td>
       <td></td>
     </tr>
@@ -15,6 +18,9 @@
         <td><%= linea_factura.descripcion %></td>
         <td><%= linea_factura.importe %></td>
         <td><%= linea_factura.lectura %></td>
+        <td><%= linea_factura.periodo %></td>
+        <td><%= linea_factura.cantidad %></td>
+        <td><%= linea_factura.tarifa %></td>
         <td><%= link_to 'editar', edit_linea_factura_path(linea_factura) %></td>
         <td><%= link_to 'borrar', linea_factura, method: :delete, data: { confirm: '¿Estas seguro?' } %></td>
       </tr>

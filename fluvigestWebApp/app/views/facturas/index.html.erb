@@ -1,5 +1,5 @@
 <h1 style="text-align: center">LISTA DE FACTURAS</h1>
-<div class="CSSTableGenerator">
+<div class="CSSTableGenerator" >
 <table>
 
     <tr>
@@ -45,8 +45,6 @@
         <% if factura.estado != 0 and factura.estado != 1 and factura.estado !=2 %>
             <td> Error de estado </td>
         <% end %>
-
-
 
         <td><%= link_to 'Mostrar', facturas_show_factura_path(:factura_id => factura.id) %></td>
         <td><%= link_to 'Ver lineas', factura %></td>
