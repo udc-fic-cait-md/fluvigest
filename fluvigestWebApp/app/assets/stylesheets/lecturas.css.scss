@@ -1,3 +1,18 @@
 // Place all the styles related to the lecturas controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+a {
+   cursor: pointer;
+}
+
+#datatable {
+   margin-top: 0.5em;
+   margin-bottom: 0.5em;
+}
+
+#filter_form {
+   margin-top: 0.5em;
+   margin-bottom: 0.5em;
+   display: none;
+}
