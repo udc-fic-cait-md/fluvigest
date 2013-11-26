@@ -28,3 +28,7 @@ tipo_servicios = TipoServicio.create([
   {nombre: 'Basura industral'},
   {nombre: 'Alcantarillado industrial'},
 ])
+
+usuario = Usuario.create([
+{usuario: 'revisor', nombre:'nombre1'}
+])
