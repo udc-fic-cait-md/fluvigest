@@ -1,5 +1,33 @@
 FluvigestWebApp::Application.routes.draw do
 
+  get "tipo_servicios/new"
+  get "tipo_servicios/create"
+  get "tipo_servicios/show"
+  get "tipo_servicios/index"
+  get "tipo_servicios/edit"
+  get "tipo_servicios/update"
+  get "tipo_servicios/destroy"
+  get "servicio_contratados/new"
+  get "servicio_contratados/create"
+  get "servicio_contratados/show"
+  get "servicio_contratados/index"
+  get "servicio_contratados/edit"
+  get "servicio_contratados/update"
+  get "servicio_contratados/destroy"
+  get "domiciliaciones/new"
+  get "domiciliaciones/create"
+  get "domiciliaciones/show"
+  get "domiciliaciones/index"
+  get "domiciliaciones/edit"
+  get "domiciliaciones/update"
+  get "domiciliaciones/destroy"
+  get "tipo_forma_pagos/new"
+  get "tipo_forma_pagos/create"
+  get "tipo_forma_pagos/show"
+  get "tipo_forma_pagos/index"
+  get "tipo_forma_pagos/edit"
+  get "tipo_forma_pagos/update"
+  get "tipo_forma_pagos/destroy"
   resources :abonados do
     resources :contratos
   end

@@ -1,0 +1,2 @@
+module TipoFormaPagosHelper
+end
