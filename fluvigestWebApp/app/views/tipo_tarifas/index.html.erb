@@ -16,9 +16,9 @@
         <td><%= tipo_tarifa.nombre %></td>
         <td><%= tipo_tarifa.descripcion %></td> <!-- Añadir helper para resumir la descripcion-->
         <td><%= tipo_tarifa.tipo_servicio %></td>
-        <td><%= link_to 'Show', tipo_tarifa %></td>
-        <td><%= link_to 'Edit', edit_tipo_tarifa_path(tipo_tarifa) %></td>
-        <td><%= link_to 'Destroy', tipo_tarifa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver tarifa', tipo_tarifa %></td>
+        <td><%= link_to 'Editar', edit_tipo_tarifa_path(tipo_tarifa) %></td>
+        <td><%= link_to 'Eliminar', tipo_tarifa, method: :delete, data: { confirm: '¿Estás seguro de que deseas eliminar el tipo de tarifa?' } %></td>
       </tr>
     <% end %>
   </tbody>

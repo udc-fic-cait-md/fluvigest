@@ -49,7 +49,7 @@
         <td><%= link_to 'Mostrar', facturas_show_factura_path(:factura_id => factura.id) %></td>
         <td><%= link_to 'Ver lineas', factura %></td>
         <td><%= link_to 'Editar', edit_factura_path(factura) %></td>
-        <td><%= link_to 'Eliminar', factura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Eliminar', factura, method: :delete, data: { confirm: '¿Estás seguro de que deseas eliminar la factura?' } %></td>
 
       </tr>
     <% end %>
@@ -64,4 +64,6 @@
 
 <a  href="/facturas/buscar-remesa">Buscar remesas</a>
 <a  href="/facturas/buscar_factura">Buscar facturas</a>
+<a class="emitir" href="/facturas/generar">Generar Facturas</a>
+<a class="emitir" href="/facturas/emitir">Emitir Facturas</a>
 
