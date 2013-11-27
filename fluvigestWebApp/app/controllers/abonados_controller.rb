@@ -5,7 +5,7 @@ class AbonadosController < ApplicationController
 
   def create
     @abonado = Abonado.new(abonado_params)
-    @abonado.save
+    
     if @abonado.save
       redirect_to @abonado
     else

@@ -38,7 +38,7 @@ class DomiciliacionsController < ApplicationController
   def destroy
     @domiciliacion = Domiciliacion.find(params[:id])
     @domiciliacion.fecha_fin = Time.now
-
+    @domiciliacion.save
     redirect_to domiciliacion_path
   end
 
