@@ -10,11 +10,11 @@
      <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
       <title> FluviGest </title>
       <style type = "text/css">
-        body {
+        /*body {
             background-image: url('/assets/water.jpg');
             background-repeat: no-repeat;
             background-position: center bottom;
-        }
+        }*/
 
          #header {
 
@@ -75,7 +75,14 @@
                </ul>
             </li>
             <li><%= link_to 'Lecturas', controller: "lecturas" %></li>
-            <li><%= link_to 'Facturas', controller: "facturas" %> </a></li>
+            <li><%= link_to 'Facturas', controller: "facturas" %> </a>
+		<ul>
+                   <li><a class="" href="/facturas/generar">Generación Automática</a></li>
+		   <li><%= link_to 'Listado facturas', controller: "facturas" %></li>
+	
+
+                </ul>
+	    </li>
             <li><a href = ""> Administracion </a>
                 <ul>
                    <li><%= link_to 'Tarifas', controller: "tipo_tarifas" %></li>
