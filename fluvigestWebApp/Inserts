@@ -336,7 +336,8 @@ INSERT INTO `fluvigestWebApp_development`.`inmuebles`
 `escalera`,
 `inmueblescol`,
 `created_at`,
-`updated_at`)
+`updated_at`,
+`calle_id`)
 VALUES
 (
 1,
@@ -350,7 +351,8 @@ VALUES
 '3',
 '1',
 '2013-11-20 10:27:00',
-'2013-11-20 10:27:00'
+'2013-11-20 10:27:00',
+1
 );
 INSERT INTO `fluvigestWebApp_development`.`inmuebles`
 (`id`,
@@ -364,7 +366,8 @@ INSERT INTO `fluvigestWebApp_development`.`inmuebles`
 `escalera`,
 `inmueblescol`,
 `created_at`,
-`updated_at`)
+`updated_at`,
+`calle_id`)
 VALUES
 (
 2,
@@ -378,7 +381,8 @@ VALUES
 '13',
 '2',
 '2013-11-20 10:27:00',
-'2013-11-20 10:27:00'
+'2013-11-20 10:27:00',
+2
 );
 
 INSERT INTO `fluvigestWebApp_development`.`calles`
@@ -386,16 +390,33 @@ INSERT INTO `fluvigestWebApp_development`.`calles`
 `nombre`,
 `zona`,
 `created_at`,
-`updated_at`)
+`updated_at`,
+`barrio_id`)
 VALUES
 (
 1,
 'Novoa Santos',
 'Cuatro Caminos',
 '2013-11-20 10:27:00',
-'2013-11-20 10:27:00'
+'2013-11-20 10:27:00',
+1
 );
-
+INSERT INTO `fluvigestWebApp_development`.`calles`
+(`id`,
+`nombre`,
+`zona`,
+`created_at`,
+`updated_at`,
+`barrio_id`)
+VALUES
+(
+2,
+'Joaquin Planells',
+'Cuatro Caminos',
+'2013-11-20 10:27:00',
+'2013-11-20 10:27:00',
+1
+);
 INSERT INTO `fluvigestWebApp_development`.`barrios`
 (`id`,
 `nombre`,

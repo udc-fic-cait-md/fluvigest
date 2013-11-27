@@ -3,9 +3,9 @@
 <div>
   <%= form_tag '/facturas/emitir' do %>
       Seleccione el periodo que desea emitir
-      <%= select('periodo', '', FacturasHelper::PERIODOS_FACTURACION, {include_blank: true}) %>
+      <%= select('periodo', '', FacturasHelper::PERIODOS_FACTURACION, {include_blank: true}, :required => true) %>
 
-      <%= select('anho', '', obtener_anhos, {include_blank: true}) %>
+      <%= select('anho', '', obtener_anhos, {include_blank: true}, :required => true) %>
 
       <%= submit_tag 'Emitir Facturas' %>
 
@@ -20,3 +20,5 @@
 </span>
 <p />
 
+<br>
+<a  href="/facturas">Volver</a>
