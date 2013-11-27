@@ -12,7 +12,7 @@
 
 <p>
   <strong>Barrio:</strong>
-  <%= @calle.barrio.nombre %>
+  <%= @calle.barrio == nil ? "" : @calle.barrio.nombre %>
 </p>
 
 <%= link_to 'Editar', edit_calle_path(@calle) %> |

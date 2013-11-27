@@ -5,7 +5,7 @@ class Inmueble < ActiveRecord::Base
 	validates_presence_of :numero
 	validates_presence_of :orden
 	validates_presence_of :cod_postal
-	validates_numericality_of :next_release, :greater_than => 0
+
 	validates :orden, uniqueness: true
 
 	def self.siguiente_orden

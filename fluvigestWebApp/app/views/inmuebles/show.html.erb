@@ -47,12 +47,12 @@
 
 <p>
   <strong>Calle:</strong>
-  <%= @inmueble.calle.nombre %>
+  <%= @inmueble.calle == nil ? "" : @inmueble.calle.nombre %>
 </p>
 
 <p>
   <strong>Barrio:</strong>
-  <%= @inmueble.calle.barrio.nombre %>
+  <%= @inmueble.calle == nil || @inmueble.calle.barrio == nil ? "" :  @inmueble.calle.barrio.nombre %>
 </p>
 
 <%= link_to 'Editar', edit_inmueble_path(@inmueble) %> |
