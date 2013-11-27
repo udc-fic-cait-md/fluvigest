@@ -1,0 +1,61 @@
+<%= form_for @domiciliacion do |f| %>
+  <% if @domiciliacion.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@domiciliacion.errors.count, "error") %> prohibited
+      this domiciliacion from being saved:</h2>
+    <ul>
+    <% @domiciliacion.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :id %><br>
+    <%= f.text_field :id %>
+  </p>
+ 
+  <p>
+    <%= f.label :titular %><br>
+    <%= f.text_field :titular %>
+  </p>
+ 
+ <p>
+    <%= f.label :direccion %><br>
+    <%= f.text_field :direccion %>
+  </p>
+  
+   <p>
+    <%= f.label :ccc %><br>
+    <%= f.text_field :ccc %>
+  </p>
+  
+   <p>
+    <%= f.label :telefono%><br>
+    <%= f.text_field :telefono %>
+  </p>
+  
+   <p>
+    <%= f.label :nif %><br>
+    <%= f.text_field :nif %>
+  </p>
+  
+  <p>
+    <%= f.label :fecha_inicio %><br>
+    <%= f.text_field :fecha_inicio %>
+  </p>
+  
+     <p>
+    <%= f.label :fecha_fin %><br>
+    <%= f.text_field :fecha_fin %>
+  </p>
+  
+  <p>
+    <%= f.label :contrato_id %><br>
+    <%= f.text_field :contrato_id %>
+  </p>
+  
+  <p>
+    <%= f.submit "Crear Domiciliacion" %>
+  </p>
+<% end %>

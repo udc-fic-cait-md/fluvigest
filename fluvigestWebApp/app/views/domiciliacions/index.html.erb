@@ -1,0 +1,29 @@
+<h1>Listado de domiciliaciones</h1>
+<%= link_to 'Nueva domiciliacion', new_domiciliacion_path %> 
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Titular</th>
+    <th>Dirección</th>
+  </tr>
+ 
+  <% @domiciliacions.each do |domiciliacion| %>
+    <tr>
+      <td><%= domiciliacion.id %></td>
+      <td><%= domiciliacion.titular %></td>
+      <td><%= domiciliacion.nif %></td>
+      <td><%= domiciliacion.ccc %></td>
+      <td><%= domiciliacion.telefono %></td>
+      <td><%= domiciliacion.fecha_inicio %></td>
+      <td><%= domiciliacion.fecha_fin %></td>
+      <td><%= domiciliacion.contrato_id %></td>
+      <td><%= link_to 'Ver', domiciliacion  %></td>
+      <td><%= link_to 'Editar', edit_domiciliacion_path(domiciliacion) %></td>
+      <td><%= link_to 'Borrar', domiciliacion_path(domiciliacion),
+                    method: :delete, data: { confirm: 'Estás seguro?' } %></td>
+    </tr>
+    
+
+  <% end %>
+</table>
+<%= link_to 'Ir al inicio', root_path %>
