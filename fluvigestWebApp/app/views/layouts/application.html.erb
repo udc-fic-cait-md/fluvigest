@@ -60,7 +60,20 @@
                </ul>            
             </li>
             <li><%= link_to 'Lecturas', controller: "lecturas" %></li>
-            <li><%= link_to 'Facturas', controller: "facturas" %> </a></li>
+            <li><%= link_to 'Facturas', controller: "facturas" %> </a>
+		<ul>
+                   <li><a class="" href="/facturas/generar">Generación Automática</a></li>
+		   <li><%= link_to 'Listado facturas', controller: "facturas" %></li>
+	
+
+                </ul>
+	    </li>
+            <li><%= link_to 'Contratos', controller: "abonados" %>
+		<ul>
+                   <li><a class="" href="/domiciliacions/index">Domiciliaciones</a></li>
+		   <li><%= link_to 'Listado de domiciliaciones', controller: "domiciliacions" %></li>
+                </ul>
+	    </li>
             <li><a href = ""> Administracion </a>
                 <ul>
                    <li><%= link_to 'Tarifas', controller: "tipo_tarifas" %></li>
