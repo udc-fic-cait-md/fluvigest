@@ -122,6 +122,10 @@ class FacturasController < ApplicationController
     render 'facturas/buscar-remesa'
   end
 
+  def ver_detalle
+    render :layout => false
+  end
+
  def generarRemesa
 	render 'facturas/generacion_remesa'
  end

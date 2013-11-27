@@ -24,7 +24,9 @@
         <td><%= factura.fecha_emision %></td>
         <td><%= factura.nombre_cliente %></td>
         <td><%= factura.dni %></td>
-        <td><%= factura.detalle_facturacion %></td>
+
+        <td><%= link_to 'ver',  '#', :onclick => "javascript:window.open('facturas/ver_detalle?detalle="  + factura.detalle_facturacion + "','popup','width=300,height=300');" %> </td>
+
 
         <% if factura.domiciliada != true %>
             <td> No </td>
@@ -67,3 +69,9 @@
 <a class="emitir" href="/facturas/generar">Generar Facturas</a>
 <a class="emitir" href="/facturas/emitir">Emitir Facturas</a>
 
+<script>
+    $('a[data-popup]').live('click', function(e) {
+        window.open( $(this).attr('href'), "Popup", "height=600, width=600" );
+        e.preventDefault();
+    });
+</script>
