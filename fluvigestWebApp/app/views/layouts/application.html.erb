@@ -1,14 +1,77 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <title>FluvigestWebApp</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+   <head>
+      <title> FluviGest </title>
+      <style type = "text/css">
+         #header {
 
-<%= yield %>
+            margin:auto;
+            width:1000px;
+            font-family:Arial, Helvetica, sans-serif;
+         }
+         ul, ol {
+            list-style:none;
+         }
+         
+         .nav li a{
+            background-color:#000;
+            color:#fff;
+            text-decoration:none;
+            padding:10px 15px;
+            display:block;
+         }
+         .nav > li {
+            float:left;
+         }
+         .nav li a:hover {
+           background-color:#434343; 
+         }
+         .nav li ul {
+            display:none;
+            position:absolute;
+            min-width:140px;
+         }
+         
+         .nav li:hover> ul {
+            display:block;
+         }
+         .nav li ul li{
+            position:relative;
+         }  
+         .nav li ul li ul {
+            right:-140px;
+            top:0px;
+         
+         }
+	  #foo { background-image: url(data:../../assets/images/water.jpg) 
+      </style>
+   </head>
+   <body>        
+      <hr size=40 color="848484"> 
+      
+      <div id="header"> 
+         <ul class="nav">
+   	    <li> <%= image_tag("logo.jpg", :size =>  "50x30", :alt => "Fluvigest" ) %></li>
+            <li><%= link_to 'Inicio', controller: "main" %>  </a></li>
+              
+            <li><%= link_to 'Inmuebles', controller: "inmuebles" %></a>
+                <ul>
+                  <li><%= link_to 'Contadores', controller: "contadores" %> </a></li>
+                  <li><a href = ""> Contratos </a></li>
+               </ul>            
+            </li>
+            <li><%= link_to 'Lecturas', controller: "lecturas" %></li>
+            <li><%= link_to 'Facturas', controller: "facturas" %> </a></li>
+            <li><a href = ""> Administracion </a>
+                <ul>
+                   <li><%= link_to 'Tarifas', controller: "tipo_tarifas" %></li>
+                </ul>                
+            </li>
+         </ul>
+      <hr size=40 color ="FFFFFF" > 
 
-</body>
+	<%= yield %>
+      </div>
+      
+     
+   </body>
 </html>

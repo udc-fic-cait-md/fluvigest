@@ -11,6 +11,16 @@
 # end
 
 # These inflection rules are supported but not enabled by default:
-# ActiveSupport::Inflector.inflections(:en) do |inflect|
-#   inflect.acronym 'RESTful'
-# end
+ ActiveSupport::Inflector.inflections(:en) do |inflect|
+
+# Contadores
+	inflect.human "num_serie","Nº Serie"
+	inflect.human "dt_instalacion","Fecha Instalación"
+	inflect.human "dt_retirada","Fecha Retirada"
+	inflect.human "dt_revision","Fecha Revisión"
+
+# Inmuebles
+	inflect.human "cod_postal","Código Postal"
+	inflect.human "numero","Número"
+
+ end

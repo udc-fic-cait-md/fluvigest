@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @tipo_tarifa.nombre %>
+</p>
+
+<p class="texto-largo">
+  <strong> Descripción:</strong>
+  <%= @tipo_tarifa.descripcion %>
+</p>
+
+
+<%= link_to 'Editar', edit_tipo_tarifa_path(@tipo_tarifa) %> |
+<%= link_to 'Volver', tipo_tarifas_path %>
+
+<h2 class="sub-titulo">Tarifas asociadas al tipo <strong>  <%= @tipo_tarifa.nombre %> </strong></h2>
+
+<table class="tabla-subdetalle">
+  <thead>
+  <tr>
+    <th>Importe</th>
+    <th>Desde</th>
+    <th>Hasta</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @tarifas.each do |tarifa| %>
+      <tr>
+        <td><%= tarifa.precio%></td>
+        <td><%= tarifa.fecha_inicio%></td>
+        <td><%= tarifa.fecha_fin%></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

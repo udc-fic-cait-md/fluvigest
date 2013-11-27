@@ -1,5 +1,14 @@
 FluvigestWebApp::Application.routes.draw do
 
+  
+  resources :tipo_tarifas
+
+  get '/facturas/listar-remesa' => 'facturas#listarRemesa'
+  get '/facturas/buscar-remesa' => 'facturas#buscarRemesa'
+  get '/facturas/buscar_factura' => 'facturas#buscarFactura'
+  get '/facturas/listar_factura' => 'facturas#listarFactura'
+  get '/facturas/generar-remesa' => 'facturas#generarRemesa'
+
   resources :domiciliacions
   
   resources :abonados do

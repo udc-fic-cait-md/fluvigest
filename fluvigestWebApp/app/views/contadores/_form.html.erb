@@ -13,29 +13,37 @@
 
   <div class="field">
     <%= f.label :num_serie %><br>
-    <%= f.text_field :num_serie %>
+    <%= f.text_field :num_serie, :required => true %>
   </div>
   <div class="field">
     <%= f.label :calibre %><br>
-    <%= f.text_field :calibre %>
+    <%= f.text_field :calibre, :required => true %>
   </div>
   <div class="field">
     <%= f.label :dt_instalacion %><br>
-    <%= f.datetime_select :dt_instalacion %>
+    <%= f.date_select :dt_instalacion, :order => [:day, :year, :month], :use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'] %>
   </div>
   <div class="field">
     <%= f.label :dt_retirada %><br>
-    <%= f.datetime_select :dt_retirada %>
+    <%= f.date_select :dt_retirada, :order => [:day, :year, :month], :use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'] %>
   </div>
   <div class="field">
     <%= f.label :dt_revision %><br>
-    <%= f.datetime_select :dt_revision %>
+    <%= f.date_select :dt_revision, :order => [:day, :year, :month], :use_month_names => ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre','Diciembre'] %>
   </div>
   <div class="field">
     <%= f.label :estado %><br>
     <%= f.text_field :estado %>
   </div>
+
+	<div class="field">
+    <%= f.label :modelos_contadore %><br>
+    <%= collection_select(:contadore, :modelos_contadore_id, ModelosContadore.all, :id, :modelo, :prompt => 'Selecciona Modelo') %>
+  </div> 
+
+
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Aceptar" %>
   </div>
 <% end %>

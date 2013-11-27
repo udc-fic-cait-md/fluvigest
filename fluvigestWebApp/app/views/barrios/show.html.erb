@@ -5,5 +5,7 @@
   <%= @barrio.nombre %>
 </p>
 
-<%= link_to 'Edit', edit_barrio_path(@barrio) %> |
-<%= link_to 'Back', barrios_path %>
+<%= link_to 'Editar', edit_barrio_path(@barrio) %> |
+<%= link_to 'Borrar', @barrio, method: :delete, data: { confirm: '¿Estás Seguro?' } %> |
+<%= link_to 'Ver todos los Barrios', barrios_path %> |
+<%= link_to 'Inicio', root_path %>

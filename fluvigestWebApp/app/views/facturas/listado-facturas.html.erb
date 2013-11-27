@@ -1,0 +1,60 @@
+<h1>Facturas</h1>
+<h3>Se han encontrado <strong style="color:red"><%= @facturas.size %></strong> resultados</h3>
+
+<div class="CSSTableGenerator">
+<table>
+
+    <tr>
+      <td>Id &nbsp&nbsp&nbsp</td>
+      <td>Descripcion &nbsp&nbsp&nbsp&nbsp</td>
+      <td>Fecha de generacion &nbsp&nbsp</td>
+      <td>Fecha de emision &nbsp&nbsp</td>
+      <td>Periodo facturación &nbsp&nbsp</td>
+      <td>Estado &nbsp</td>
+	  <td> Opciones </td>
+    </tr>
+
+    <% @facturas.each do |factura| %>
+    <tr>
+      <td><%= factura.id %></td>
+      <td><%= factura.descripcion %></td>
+      <td><%= factura.created_at %></td>
+	  <td><%= factura.fecha_emision %></td>
+      <td><%= factura.periodo %></td>
+		
+		<% if factura.estado == 0 %>
+  			  <td> Pendiente de emitir </td>
+		<% end %>
+		<% if factura.estado == 1 %>
+  			<td> Generada con errores </td>
+		<% end %>
+		<% if factura.estado == 2 %>
+  			<td> Emitida </td>
+		<% end %>
+		<% if factura.estado != 0 and factura.estado != 1 and factura.estado !=2 %>
+  			<td> Error de estado </td>
+		<% end %>
+
+      <td>
+
+		<a href="/facturas/show_factura?factura_id=<%= factura.id %>/edit">Mostrar Factura</a>
+        
+		<% if factura.estado == 0 or factura.estado == 1 %>
+			<a href="/facturas/<%= factura.id %>" style="margin-right:5px">Modificar Factura</a> 
+			<a href="/facturas/generar<%=%>" style="margin-right:5px">Volver a generar Factura</a> 
+		<% end %>
+
+		<% if factura.estado != 0 and factura.estado != 1 and factura.estado !=2 %>
+			<a href="/facturas/generar<%=%>" style="margin-left:110px"> Volver a generar Factura</a> 
+		<% end %>
+
+      </td>
+    </tr>
+    <% end %>
+
+</table>
+</div>
+<br>
+
+<a class="botonLink" href="/facturas/buscar_factura">Volver</a>
+

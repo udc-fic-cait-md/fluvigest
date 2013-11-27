@@ -1,0 +1,44 @@
+<h1>Listado Remesas</h1>
+<h3>Se han encontrado <strong style="color:red"><%= @facturas.size %></strong> resultados</h3>
+
+<div class="CSSTableGenerator">
+<table>
+
+    <tr>
+      <td>Id</td>
+      <td>Descripcion</td>
+      <td>Fecha de emision</td>
+      <td>Fecha de creacion</td>
+<!--      <td>Fecha de actualizacion</td> -->
+      <td>IdRemesa</td>
+	  <td>Domiciliada</td>
+	  <td>Importe</td>
+	  <td> Opciones </td>	
+    </tr>
+
+
+    <% @facturas.each do |factura| %>
+    <tr>
+      <td><%= factura.id %></td>
+      <td><%= factura.descripcion %></td>
+      <td><%= factura.fecha_emision %></td>
+      <td><%= factura.created_at %></td>
+ <!--     <td><%= factura.updated_at %></td>  -->
+	  <td><%= factura.idRemesa %></td>
+	  <td><%= factura.domiciliada %></td>
+	  <td> </td>
+      <td>
+        <a href="/facturas/<%= factura.id %>" style="margin-right:5px">Mostrar Lineas Factura</a>
+
+        <a href="/facturas/<%= factura.id %>/edit">Editar Factura</a>
+      </td>
+    </tr>
+    <% end %>
+ 
+</table> 
+
+</div>
+<br>
+<a class="botonLink" href="/facturas/buscar-remesa">Volver</a>
+<a class="botonLink" href="/facturas/generar-remesa">Generar Remesa</a>
+
