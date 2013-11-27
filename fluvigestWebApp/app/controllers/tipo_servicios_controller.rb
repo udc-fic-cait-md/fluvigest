@@ -30,7 +30,7 @@ class TipoServiciosController < ApplicationController
 
   def destroy
     @t = TipoServicio.find(params[:id])
-    @t.destroyo
+    @t.destroy
     
     redirect_to tipo_servicios_path
   end
