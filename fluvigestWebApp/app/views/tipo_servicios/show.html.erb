@@ -1,2 +1,12 @@
-<h1>TipoServicios#show</h1>
-<p>Find me in app/views/tipo_servicios/show.html.erb</p>
+<p>
+  <strong>Nombre:</strong>
+  <%= @t.nombre %>
+</p>
+ 
+<p>
+  <strong>Descripción:</strong>
+  <%= @t.descripcion %>
+</p>
+
+<%= link_to 'Volver', tipo_servicios_path %>
+| <%= link_to 'Editar', edit_tipo_servicio_path(@edit) %>

@@ -1,0 +1,25 @@
+<%= form_for @t do |f| %>
+  <% if @t.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@t.errors.count, "error") %> ha impedido que este tipo de servicio sea grabado:</h2>
+    <ul>
+    <% @t.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </p>
+ 
+  <p>
+    <%= f.label :descripcion %><br>
+    <%= f.text_field :descripcion %>
+  </p>
+
+  <p>
+    <%= f.submit "Crear Tipo de Servicio" %>
+  </p>
+<% end %>

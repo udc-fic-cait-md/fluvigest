@@ -1,2 +1,12 @@
-<h1>TipoFormaPagos#show</h1>
-<p>Find me in app/views/tipo_forma_pagos/show.html.erb</p>
+<p>
+  <strong>Nombre:</strong>
+  <%= @t.nombre %>
+</p>
+ 
+<p>
+  <strong>Descripción:</strong>
+  <%= @t.descripcion %>
+</p>
+
+<%= link_to 'Volver', tipo_forma_pagos_path %>
+| <%= link_to 'Editar', edit_tipo_forma_pago_path(@edit) %>

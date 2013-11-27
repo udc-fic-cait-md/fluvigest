@@ -1,0 +1,40 @@
+<%= form_for @s do |f| %>
+  <% if @s.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@s.errors.count, "error") %> prohibited this abonado from being saved:</h2>
+    <ul>
+    <% @s.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :contrato_id %><br>
+    <%= f.text_field :contrato_id %>
+  </p>
+ 
+  <p>
+    <%= f.label :tipo_servicio_id %><br>
+    <%= f.text_field :tipo_servicio_id %>
+  </p>
+ 
+  <p>
+    <%= f.label :fecha_inicio %><br>
+    <%= f.text_field :fecha_inicio %>
+  </p>
+  
+  <p>
+    <%= f.label :fecha_fin %><br>
+    <%= f.text_field :fecha_fin %>
+  </p>
+
+  <p>
+    <%= f.label :tipo_tarifa_id %><br>
+    <%= f.text_field :ftipo_tarifa_id %>
+  </p>
+
+  <p>
+    <%= f.submit "Crear Servicio Contratado" %>
+  </p>
+<% end %>

@@ -1,12 +1,16 @@
 FluvigestWebApp::Application.routes.draw do
 
-
-  
   resources :domiciliacions
   
   resources :abonados do
-    resources :contratos
+    resources :contratos do
+      resources :servicios_contratados
+    end
   end
+  
+  resources :tipo_servicios
+  resources :tipo_forma_pagos
+  
   resources :contadores
   resources :inmuebles
   resources :barrios
