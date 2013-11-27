@@ -1,15 +1,19 @@
 <h1 style="text-align: center">LISTA DE FACTURAS</h1>
-<div class="CSSTableGenerator">
+<div  >
 <table>
 
     <tr>
       <td>Descripcion</td>
       <td>Fecha</td>
+      <td>Cliente</td>
+      <td>Dni</td>
+      <td>Detalle</td>
+      <td>Domiciliada</td>
+      <td>Estado</td>
       <td></td>
       <td></td>
       <td></td>
       <td></td>
-
     </tr>
 
 
@@ -18,10 +22,36 @@
       <tr>
         <td><%= factura.descripcion %></td>
         <td><%= factura.fecha_emision %></td>
+        <td><%= factura.nombre_cliente %></td>
+        <td><%= factura.dni %></td>
+
+        <td><%= link_to 'ver',  '#', :onclick => "javascript:window.open('facturas/ver_detalle?detalle="  + factura.detalle_facturacion + "','popup','width=300,height=300');" %> </td>
+
+
+        <% if factura.domiciliada != true %>
+            <td> No </td>
+        <% end %>
+        <% if factura.domiciliada != false %>
+            <td> Sí </td>
+        <% end %>
+
+        <% if factura.estado == 0 %>
+            <td> Pendiente de emitir </td>
+        <% end %>
+        <% if factura.estado == 1 %>
+            <td> Generada con errores </td>
+        <% end %>
+        <% if factura.estado == 2 %>
+            <td> Emitida </td>
+        <% end %>
+        <% if factura.estado != 0 and factura.estado != 1 and factura.estado !=2 %>
+            <td> Error de estado </td>
+        <% end %>
+
         <td><%= link_to 'Mostrar', facturas_show_factura_path(:factura_id => factura.id) %></td>
         <td><%= link_to 'Ver lineas', factura %></td>
         <td><%= link_to 'Editar', edit_factura_path(factura) %></td>
-        <td><%= link_to 'Borrar', factura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Eliminar', factura, method: :delete, data: { confirm: '¿Estás seguro de que deseas eliminar la factura?' } %></td>
 
       </tr>
     <% end %>
@@ -32,8 +62,16 @@
 
 <br>
 
-<%= link_to 'Crear factura', new_factura_path, {:class => "botonLink"} %>
+<%= link_to 'Crear factura', new_factura_path %>
 
-<a class="botonLink" href="/facturas/buscar-remesa">Buscar remesas</a>
-<a class="botonLink" href="/facturas/buscar_factura">Buscar facturas</a>
+<a  href="/facturas/buscar-remesa">Buscar remesas</a>
+<a  href="/facturas/buscar_factura">Buscar facturas</a>
+<a class="emitir" href="/facturas/generar">Generar Facturas</a>
+<a class="emitir" href="/facturas/emitir">Emitir Facturas</a>
 
+<script>
+    $('a[data-popup]').live('click', function(e) {
+        window.open( $(this).attr('href'), "Popup", "height=600, width=600" );
+        e.preventDefault();
+    });
+</script>

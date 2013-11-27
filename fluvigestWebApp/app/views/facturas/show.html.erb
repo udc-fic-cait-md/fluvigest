@@ -1,11 +1,15 @@
 <p id="notice"><%= notice %></p>
 <h1 style="text-align: center">LINEAS DE FACTURA</h1>
-<div class="CSSTableGenerator">
+<div >
   <table>
     <tr>
       <td>Numero</td>
       <td>Descripcion</td>
       <td>Importe</td>
+      <td>Lectura</td>
+      <td>Periodo</td>
+      <td>Cantidad</td>
+      <td>Tarifa</td>
       <td></td>
       <td></td>
     </tr>
@@ -14,6 +18,10 @@
           <td><%= linea_factura.numero %></td>
           <td><%= linea_factura.descripcion %></td>
           <td><%= linea_factura.importe %></td>
+          <td><%= linea_factura.lectura %></td>
+          <td><%= linea_factura.periodo %></td>
+          <td><%= linea_factura.cantidad %></td>
+          <td><%= linea_factura.tarifa %></td>
           <td><%= link_to 'Editar', edit_linea_factura_path(linea_factura) %></td>
           <td><%= link_to 'Eliminar', [linea_factura.factura, linea_factura],
                       method: :delete,
@@ -26,5 +34,5 @@
 
 <br>
 
-<%= link_to 'Añadir linea', new_factura_linea_factura_path(@factura.id), {:class => "botonLink"}  %>
-<%= link_to 'Volver', facturas_path, {:class => "botonLink"}  %>
+<%= link_to 'Añadir linea', new_factura_linea_factura_path(@factura.id) %>
+<%= link_to 'Volver', facturas_path %>

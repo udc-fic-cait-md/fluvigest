@@ -8,6 +8,7 @@ FluvigestWebApp::Application.routes.draw do
   get '/facturas/buscar_factura' => 'facturas#buscarFactura'
   get '/facturas/listar_factura' => 'facturas#listarFactura'
   get '/facturas/generar-remesa' => 'facturas#generarRemesa'
+  get '/facturas/ver_detalle' => 'facturas#ver_detalle'
 
   resources :domiciliacions
   

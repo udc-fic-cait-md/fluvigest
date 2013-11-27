@@ -1,7 +1,7 @@
 <h1>Facturas</h1>
 <h3>Se han encontrado <strong style="color:red"><%= @facturas.size %></strong> resultados</h3>
 
-<div class="CSSTableGenerator">
+<div>
 <table>
 
     <tr>
@@ -41,7 +41,7 @@
         
 		<% if factura.estado == 0 or factura.estado == 1 %>
 			<a href="/facturas/<%= factura.id %>" style="margin-right:5px">Modificar Factura</a> 
-			<a href="/facturas/generar<%=%>" style="margin-right:5px">Volver a generar Factura</a> 
+
 		<% end %>
 
 		<% if factura.estado != 0 and factura.estado != 1 and factura.estado !=2 %>
@@ -56,5 +56,5 @@
 </div>
 <br>
 
-<a class="botonLink" href="/facturas/buscar_factura">Volver</a>
+<a  href="/facturas/buscar_factura">Volver</a>
 

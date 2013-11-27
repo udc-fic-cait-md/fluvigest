@@ -11,9 +11,6 @@
 </p>
 
 
-<%= link_to 'Editar', edit_tipo_tarifa_path(@tipo_tarifa) %> |
-<%= link_to 'Volver', tipo_tarifas_path %>
-
 <h2 class="sub-titulo">Tarifas asociadas al tipo <strong>  <%= @tipo_tarifa.nombre %> </strong></h2>
 
 <table class="tabla-subdetalle">
@@ -35,6 +32,9 @@
   <% end %>
   </tbody>
 </table>
+
+<%= link_to 'Editar', edit_tipo_tarifa_path(@tipo_tarifa) %> |
+<%= link_to 'Volver', tipo_tarifas_path %>
 
 <br>
 

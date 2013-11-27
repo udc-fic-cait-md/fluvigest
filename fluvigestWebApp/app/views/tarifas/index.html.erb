@@ -9,16 +9,15 @@
       <th colspan="3">Acciones</th>
     </tr>
   </thead>
-
   <tbody>
     <% @tarifas.each do |tarifa| %>
       <tr>
         <td><%= tarifa.precio%></td>
         <td><%= tarifa.fecha_inicio%></td>
         <td><%= tarifa.fecha_fin%></td>
-        <td><%= link_to 'Show', tarifa %></td>
-        <td><%= link_to 'Edit', edit_tarifa_path(tarifa) %></td>
-        <td><%= link_to 'Destroy', tarifa, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver tarifa', tarifa %></td>
+        <td><%= link_to 'Editar', edit_tarifa_path(tarifa) %></td>
+        <td><%= link_to 'Eliminar', tarifa, method: :delete, data: { confirm: '¿Estás seguro de que deseas eliminar la tarifa?' } %></td>
       </tr>
     <% end %>
   </tbody>

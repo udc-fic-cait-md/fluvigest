@@ -1,7 +1,24 @@
    <h1>Lista de lecturas realizadas</h1>
-   <%= link_to 'Crear nueva entrada', new_lectura_path %> 
-   <p>Filtrar resultados</p>
-   <table>
+   <%= link_to 'Crear nueva entrada', new_lectura_path %> <br>
+   <a onClick="toggleFilterForm()">Filtrar resultados &gt;&gt;</a>
+   <table id="filter_form">
+      <tr>
+      <td class="field">
+         <div class="label">Id. usuario</div>
+         <input type="text" name="usuarios_id">
+      </td>
+      <td class="field">
+         <div class="label">Id. contador</div>
+         <input type="text" name="contadores_id">
+      </td>
+      <td class="field">
+         <div class="label">Tipo incidencia</div>
+         <input type="text" name="tincidencias_id">
+      </td>
+      <td><input id="filter_form_button" type="Button" value="Buscar" onClick="" disabled></td>
+      </tr>
+   </div>
+   <table id="datatable">
       <thead>
          <th>Id</th>
          <th>Lectura</th>

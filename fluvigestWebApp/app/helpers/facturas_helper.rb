@@ -109,6 +109,7 @@ module FacturasHelper
       servicios_contratados.each{|servicio_contratado|
 
       lectura_lectura = 'N/A'
+      tarifa_precio = ''
 
       # LINEAS DE FACTURA
       if servicio_contratado.tipo_servicio.nombre.upcase == 'AGUA'
@@ -130,6 +131,7 @@ module FacturasHelper
             tarifa = obtener_tarifa_actual_por_tipo_tarifa(servicio_contratado.tipo_tarifa)
             if !tarifa.nil?
               # hay tarifa para el servicio
+              tarifa_precio = tarifa.precio
               importe = lectura.lectura * tarifa.precio
               trazas << "Tarifa aplicada: #{tarifa.tipo_tarifa.nombre} (precio litro: #{tarifa.precio}, Importe calculado: #{importe})"
             else
@@ -184,7 +186,8 @@ module FacturasHelper
           numero: num_linea,
           descripcion: servicio_contratado.tipo_servicio.nombre,
           importe: importe,
-          lectura: lectura_lectura
+          lectura: lectura_lectura,
+          tarifa: tarifa_precio.to_s
       )
 
       lineas << linea
