@@ -19,6 +19,12 @@
     <%= f.label :zona %><br>
     <%= f.text_field :zona %>
   </div>
+
+	<div class="field">
+    <%= f.label :barrio %><br>
+    <%= collection_select(:calle, :barrio_id, Barrio.all, :id, :nombre, :prompt => 'Selecciona el Barrio') %>
+  </div> 
+
   <div class="actions">
     <%= f.submit "Aceptar" %>
   </div>

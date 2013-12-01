@@ -1,7 +1,7 @@
 <%= form_for(@barrio) do |f| %>
   <% if @barrio.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@barrio.errors.count, "error") %> prohibited this barrio from being saved:</h2>
+      <h2><%= pluralize(@barrio.errors.count, "error") %> impiden guardar los cambios:</h2>
 
       <ul>
       <% @barrio.errors.full_messages.each do |msg| %>
@@ -16,6 +16,6 @@
     <%= f.text_field :nombre, :required => true %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Aceptar" %>
   </div>
 <% end %>
