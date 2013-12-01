@@ -41,11 +41,6 @@
 </p>
 
 <p>
-  <strong>Inmueblescol:</strong>
-  <%= @inmueble.inmueblescol %>
-</p>
-
-<p>
   <strong>Calle:</strong>
   <%= @inmueble.calle == nil ? "" : @inmueble.calle.nombre %>
 </p>
@@ -56,9 +51,6 @@
 </p>
 
 <%= link_to 'Editar', edit_inmueble_path(@inmueble) %> |
-<%= link_to 'Back', inmuebles_path %>
-
-<%= link_to 'Editar', edit_modelos_contadore_path(@modelos_contadore) %> |
-<%= link_to 'Borrar', @modelos_contadore, method: :delete, data: { confirm: '¿Estas seguro?' } %> |
-<%= link_to 'Todos los Modelos', modelos_contadores_path %> |
+<%= link_to 'Borrar', @inmueble, method: :delete, data: { confirm: '¿Estas seguro?' } %> |
+<%= link_to 'Todos los Inmuebles', modelos_contadores_path %> |
 <%= link_to 'Inicio', root_path %>

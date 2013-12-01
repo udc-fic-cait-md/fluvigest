@@ -1,10 +1,11 @@
-<h1>Listing calles</h1>
+<h1>Lista de Calles</h1>
 
 <table>
   <thead>
     <tr>
       <th>Nombre</th>
       <th>Zona</th>
+      <th>Barrio</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= calle.nombre %></td>
         <td><%= calle.zona %></td>
+        <td><%= calle.barrio == nil ? "" : calle.barrio.nombre %></td>
         <td><%= link_to 'Ver Calle', calle %></td>
         <td><%= link_to 'Editar', edit_calle_path(calle) %></td>
         <td><%= link_to 'Borrar', calle, method: :delete, data: { confirm: 'Estás Seguro?' } %></td>

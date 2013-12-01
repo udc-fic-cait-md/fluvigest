@@ -24,6 +24,7 @@
     <%= f.label :barrio %><br>
     <%= collection_select(:calle, :barrio_id, Barrio.all, :id, :nombre, :prompt => 'Selecciona el Barrio') %>
   </div> 
+<%= link_to 'Nuevo Barrio', new_barrio_path %>
 
   <div class="actions">
     <%= f.submit "Aceptar" %>

@@ -69,6 +69,6 @@ class InmueblesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inmueble_params
-      params.require(:inmueble).permit(:numero, :piso, :portal, :puerta, :nombre, :orden, :cod_postal, :escalera, :inmueblescol)
+      params.require(:inmueble).permit(:numero, :piso, :portal, :puerta, :nombre, :orden, :cod_postal, :escalera, :inmueblescol, :calle_id)
     end
 end

@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+	<div class="field">
+    <%= f.label :calle %><br>
+    <%= collection_select(:inmueble, :calle_id, Calle.all, :id, :nombre, :prompt => 'Selecciona la calle') %>
+  </div> 
+	<%= link_to 'Nueva Calle', new_calle_path %>
+
   <div class="field">
     <%= f.label :numero %><br>
     <%= f.text_field :numero, :required => true %>
@@ -42,10 +48,6 @@
   <div class="field">
     <%= f.label :escalera %><br>
     <%= f.text_field :escalera %>
-  </div>
-  <div class="field">
-    <%= f.label :inmueblescol %><br>
-    <%= f.text_field :inmueblescol %>
   </div>
   <div class="actions">
     <%= f.submit "Aceptar" %>
