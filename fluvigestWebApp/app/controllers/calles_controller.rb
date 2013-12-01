@@ -69,6 +69,6 @@ class CallesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def calle_params
-      params.require(:calle).permit(:nombre, :zona)
+      params.require(:calle).permit(:nombre, :zona, :barrio_id)
     end
 end
