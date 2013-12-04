@@ -4,10 +4,6 @@
    <table id="filter_form">
       <tr>
       <td class="field">
-         <div class="label">Id. usuario</div>
-         <input type="text" name="usuarios_id">
-      </td>
-      <td class="field">
          <div class="label">Id. contador</div>
          <input type="text" name="contadores_id">
       </td>
@@ -24,7 +20,6 @@
          <th>Lectura</th>
          <th>Fecha</th>
          <th>Lectura anterior</th>
-         <th>Id. usuario</th>
          <th>Id. contador</th>
          <th>Tipo incidencia</th>
          <th>Incidencia</th>
@@ -38,7 +33,7 @@
             <td class="lectura"><%= lectura.lectura %></td>
             <td class="fecha"><%= lectura.fecha %></td>
             <td class="lectura_anterior"><%= lectura.lectura_anterior %></td>
-            <td class="usuarios_id"><%= lectura.usuarios_id %></td>
+            
             <td class="contadores_id"><%= lectura.contadores_id %></td>
             <td class="tincidencias_id"><%= lectura.tincidencias_id %></td>
             <td class="incidencia"><%= lectura.incidencia %></td>
