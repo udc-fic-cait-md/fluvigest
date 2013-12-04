@@ -29,6 +29,13 @@ tipo_servicios = TipoServicio.create([
   {nombre: 'Alcantarillado industrial'},
 ])
 
-usuario = Usuario.create([
-{usuario: 'revisor', nombre:'nombre1'}
+usuarios = Usuario.create([
+  {usuario: 'revisor', nombre:'nombre1'}
+])
+
+tipo_incidencias = TipoIncidencia.create([
+  {descripcion: 'Sin incidencias'},
+  {descripcion: 'Contador dañado'},
+  {descripcion: 'Contador inaccesible'},
+  {descripcion: 'Falta contador'},
 ])

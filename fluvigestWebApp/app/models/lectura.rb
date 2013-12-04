@@ -4,8 +4,8 @@ class Lectura < ActiveRecord::Base
 belongs_to :contadore, :foreign_key => 'contadores_id'
 
 validates_presence_of :fecha
-validates_presence_of :tincidencias_id
-
+validates_presence_of :tipo_incidencias_id
+validates_presence_of :usuarios_id
 validates_presence_of :contadores_id
 #validates_format_of :lectura, :with =>/\A\d+\.?\d*\Z/
 validates :lectura, numericality: true

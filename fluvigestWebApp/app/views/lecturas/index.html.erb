@@ -35,10 +35,8 @@
             <td class="lectura_anterior"><%= lectura.lectura_anterior %></td>
             
             <td class="contadores_id"><%= lectura.contadores_id %></td>
-            <td class="tincidencias_id"><%= lectura.tincidencias_id %></td>
+            <td class="tipo_incidencias_id"><%= lectura.tipo_incidencias_id %></td>
             <td class="incidencia"><%= lectura.incidencia %></td>
-            <!-- <td><%= link_to 'Editar', edit_lectura_path(lectura) %></td> -->
-            <td>Editar</td>
             <td><%= link_to 'Borrar', lectura_path(lectura),
                     method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
          </tr>

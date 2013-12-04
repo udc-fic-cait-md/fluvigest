@@ -31,6 +31,6 @@ class LecturasController < ApplicationController
   private
     def lectura_params
       params.require(:lectura)
-          .permit(:lectura, :fecha, :lectura_anterior, :incidencia, :tincidencias_id, :contadores_id)
+          .permit(:lectura, :fecha, :lectura_anterior, :incidencia, :tipo_incidencias_id, :usuarios_id, :contadores_id)
     end
 end
