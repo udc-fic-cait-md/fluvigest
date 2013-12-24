@@ -30,6 +30,10 @@ gem 'jbuilder', '~> 1.2'
 # Para paginacion.
 gem 'will_paginate', '~> 3.0.5'
 
+#Para generar el pdf a partir de la pagina web
+gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

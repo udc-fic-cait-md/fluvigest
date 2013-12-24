@@ -355,10 +355,38 @@ module FacturasHelper
 
   end
 
+  def  show_pdf(numeroFactura)
+     Thread.new{Factura_to_PDF.new.crearPDF(numeroFactura)}
+	return 'emitida'
+  end
+
+
 end
+
 
 class EstadosFactura
   PTE_EMITIR     = 0
   GEN_CON_ERROR  = 1
   EMITIDA        = 2
 end
+
+
+class Factura_to_PDF 
+    #Gemfile
+    #    gem 'pdfkit'
+    #    gem 'wkhtmltopdf-binary'
+    require 'pdfkit'
+
+    # @param [Integer] numeroFactura identificador de la factura
+    def crearPDF(numeroFactura)
+      rutaUrl = 'http://localhost:3000/facturas/show_factura?factura_id='
+      rutaDestinoPDF= '/tmp'
+	    rutaUrlFull = rutaUrl + numeroFactura.to_s
+
+      kit = PDFKit.new(rutaUrlFull)
+      kit.to_pdf(rutaDestinoPDF +'/'+ numeroFactura.to_s + '.pdf')
+    end
+end
+
+
+
